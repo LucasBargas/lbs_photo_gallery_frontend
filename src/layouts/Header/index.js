@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 import AppContainer from '../../components/AppContainer';
 import HeaderMedias from './HeaderMedias';
@@ -8,10 +9,10 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <AppContainer>
-        <S.HeaderAreaNav>
+        <S.HeaderArea>
           <HeaderMedias />
           <HeaderNav />
-        </S.HeaderAreaNav>
+        </S.HeaderArea>
       </AppContainer>
     </S.HeaderContainer>
   );
