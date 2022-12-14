@@ -1,8 +1,8 @@
 import React from 'react';
 import * as S from './styles';
 
-const AppContainer = ({ mw, children }) => {
-  return <S.AppContainerArea mw={mw}>{children}</S.AppContainerArea>;
+const AppContainer = ({ children }) => {
+  return <S.AppContainerArea>{children}</S.AppContainerArea>;
 };
 
 export default AppContainer;
