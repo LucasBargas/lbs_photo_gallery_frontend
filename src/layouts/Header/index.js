@@ -8,10 +8,10 @@ const Header = () => {
   return (
     <S.HeaderContainer>
       <AppContainer>
-        <S.HeaderArea>
+        <S.HeaderAreaTop>
           <HeaderMedias />
           <HeaderNav />
-        </S.HeaderArea>
+        </S.HeaderAreaTop>
       </AppContainer>
     </S.HeaderContainer>
   );
