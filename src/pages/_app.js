@@ -1,5 +1,6 @@
 import { Roboto } from '@next/font/google';
 import { ThemeProvider } from 'styled-components';
+import { AuthProvider } from '../contexts/AuthContext';
 import AppArea from '../layouts/AppArea';
 import Header from '../layouts/Header';
 import Globals from '../styles/Globals';
@@ -11,15 +12,17 @@ const roboto = Roboto({
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={Theme}>
-      <AppArea className={roboto.className}>
-        <Header />
-        <main>
-          <Component {...pageProps} />
-        </main>
-        <Globals />
-      </AppArea>
-    </ThemeProvider>
+    <AuthProvider>
+      <ThemeProvider theme={Theme}>
+        <AppArea className={roboto.className}>
+          <Header />
+          <main>
+            <Component {...pageProps} />
+          </main>
+          <Globals />
+        </AppArea>
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 
