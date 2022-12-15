@@ -4,8 +4,6 @@ import React from 'react';
 import useAuthContext from '../../../hooks/useAuthContext';
 import * as S from './styles';
 
-const defaultLink = [{ title: 'Início', path: '/' }];
-
 const formLinks = [
   { title: 'Entrar', path: '/entrar' },
   { title: 'Cadastrar-se', path: '/cadastrar-se' },
@@ -23,13 +21,11 @@ const HeaderNav = () => {
   return (
     <S.HeaderNavContainer>
       <ul>
-        {defaultLink.map(({ title, path }, index) => (
-          <li key={`${title}-${index}`}>
-            <Link className={pathname === path ? 'active' : ''} href={path}>
-              {title}
-            </Link>
-          </li>
-        ))}
+        <li>
+          <Link className={pathname === '/' ? 'active' : ''} href="/">
+            Início
+          </Link>
+        </li>
 
         {!authenticated &&
           formLinks.map(({ title, path }, index) => (
