@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import AppContainer from '../../components/AppContainer';
-import HeaderMedias from './HeaderMedias';
+import HeaderLogo from './HeaderLogo';
 import HeaderNav from './HeaderNav';
 import * as S from './styles';
 
@@ -10,7 +10,7 @@ const Header = () => {
     <S.HeaderContainer>
       <AppContainer>
         <S.HeaderArea>
-          <HeaderMedias />
+          <HeaderLogo />
           <HeaderNav />
         </S.HeaderArea>
       </AppContainer>
