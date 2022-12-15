@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
 import * as S from './styles';
-import { FaFacebookF, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 const HeaderLogo = () => {
   return (

@@ -8,4 +8,8 @@ export const HeaderArea = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media (max-width: 1024px) {
+    flex-direction: column;
+  }
 `;
