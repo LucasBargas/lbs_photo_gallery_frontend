@@ -11,7 +11,11 @@ const Header = () => {
 
   return (
     <S.HeaderContainer
-      shadow={pathname === '/' || pathname.includes('usuario')}
+      shadow={
+        pathname === '/' ||
+        pathname === '/minhas-fotos' ||
+        pathname.includes('usuario')
+      }
     >
       <AppContainer>
         <HeaderMedias />
