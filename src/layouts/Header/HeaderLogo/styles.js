@@ -6,7 +6,7 @@ export const HeaderLogoContainer = styled.nav`
   }
 
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.325rem;
 
     @media (max-width: 1024px) {
       font-size: 2.5rem;
