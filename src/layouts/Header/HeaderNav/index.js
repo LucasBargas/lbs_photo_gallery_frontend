@@ -45,7 +45,6 @@ const HeaderNav = () => {
     handleResize();
 
     window.addEventListener('resize', handleResize);
-
     return () => {
       window.removeEventListener('resize', handleResize);
     };
@@ -61,7 +60,6 @@ const HeaderNav = () => {
     };
 
     window.addEventListener('click', handleOutsideClick);
-
     return () => {
       window.removeEventListener('click', handleOutsideClick);
     };

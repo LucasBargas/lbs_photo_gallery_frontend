@@ -85,8 +85,7 @@ export const HeaderNavSubmenu = styled.div`
     justify-content: center;
     align-items: center;
     position: fixed;
-    background: ${({ theme }) => theme.colors.greenColor};
-    opacity: .6;
+    background: rgba(35, 134, 54, .7);
     top: 0;
     left: 0;
     height: 100vh;
@@ -99,9 +98,9 @@ export const HeaderNavSubmenu = styled.div`
     box-shadow: 0px 0px 6px 0px ${({ theme }) => theme.colors.greenColor};
     background: ${({ theme }) => theme.colors.lightColor};
     width: 100%;
+    padding: .5rem;
     opacity: 1;
     visibility: visible;
-    padding: .5rem;
     animation: ${downUp} .2s forwards;
 
     @media(max-width: 1024px) {
