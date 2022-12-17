@@ -67,17 +67,17 @@ export const HeaderNavButtonProfile = styled.li`
     gap: .5rem;
 
     img {
-      width: 25px;
-      height: 25px;
+      width: 30px;
+      height: 30px;
     }
   }
 `;
 
 export const HeaderNavSubmenu = styled.div`
   position: absolute;
-  top: 2.325rem;
+  top: 2.625rem;
   right: 0;
-  width: calc(100% + 4rem);
+  width: calc(100% + 5rem);
   z-index: 1000;
 
   @media(max-width: 1024px) {
@@ -95,7 +95,7 @@ export const HeaderNavSubmenu = styled.div`
 
   ul {
     display: block;
-    border-radius: 6px;
+    border-radius: 4px;
     box-shadow: 0px 0px 6px 0px ${({ theme }) => theme.colors.greenColor};
     background: ${({ theme }) => theme.colors.lightColor};
     width: 100%;
@@ -150,6 +150,19 @@ export const HeaderNavSubmenu = styled.div`
         text-transform: none;
         width: 100%;
         padding-bottom: .625rem;
+        transition: .4s;
+
+        &:hover {
+          color: ${({ theme }) => theme.colors.greenColor};
+        }
+
+        &.active {
+          color: ${({ theme }) => theme.colors.greenColor};
+        }
+
+        &::after {
+          display: none;
+        }
       }
     }
   }

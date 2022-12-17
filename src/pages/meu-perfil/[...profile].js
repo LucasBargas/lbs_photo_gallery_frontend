@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useAuthContext from '../../hooks/useAuthContext';
 
-const User = () => {
+const MyProfile = () => {
   const router = useRouter();
   const { authenticated } = useAuthContext();
 
@@ -13,4 +13,4 @@ const User = () => {
   return <div>Profile</div>;
 };
 
-export default User;
+export default MyProfile;

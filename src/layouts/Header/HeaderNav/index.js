@@ -12,10 +12,16 @@ const noAuthLinks = [
   { title: 'Cadastrar-se', path: '/cadastrar-se' },
 ];
 
+const authLinks = [
+  { title: 'Meu perfil', path: '/meu-perfil/lucas_bargas' },
+  { title: 'Editar usuário', path: '/meu-perfil/editar-usuario' },
+];
+
 const HeaderNav = () => {
-  const { push, pathname } = useRouter();
+  const { push, asPath, pathname } = useRouter();
   const { authenticated } = useAuthContext();
   const [submenu, setSubmenu] = useState(false);
+  const [mobile, setMobile] = useState(false);
 
   const handleLogoutClick = () => {
     setSubmenu(false);
@@ -26,6 +32,25 @@ const HeaderNav = () => {
     if (target === currentTarget) setSubmenu(false);
   };
 
+  const handleMouseEnter = ({ target }) => {
+    if (mobile) return;
+    setSubmenu(!submenu);
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth <= 1024) setMobile(true);
+    };
+
+    handleResize();
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   useEffect(() => {
     const handleOutsideClick = ({ target }) => {
       if (
@@ -34,7 +59,12 @@ const HeaderNav = () => {
       )
         setSubmenu(false);
     };
+
     window.addEventListener('click', handleOutsideClick);
+
+    return () => {
+      window.removeEventListener('click', handleOutsideClick);
+    };
   }, []);
 
   return (
@@ -57,7 +87,10 @@ const HeaderNav = () => {
 
         {authenticated && (
           <S.HeaderNavButtonProfile id="headerNavButton">
-            <button onClick={() => setSubmenu(!submenu)}>
+            <button
+              onMouseEnter={handleMouseEnter}
+              onClick={() => setSubmenu(!submenu)}
+            >
               <Image src={userNoPhoto} alt="Usuário sem foto" />
               <span>Meu perfil</span>
             </button>
@@ -68,12 +101,16 @@ const HeaderNav = () => {
                   <li>
                     <IoClose onClick={() => setSubmenu(false)} />
                   </li>
-                  <li onClick={() => setSubmenu(false)}>
-                    <Link href="/perfil/lucas_bargas">Meu perfil</Link>
-                  </li>
-                  <li onClick={() => setSubmenu(false)}>
-                    <Link href="/perfil/editar">Editar usuário</Link>
-                  </li>
+                  {authLinks.map(({ title, path }, index) => (
+                    <li key={`${title}-${index}`}>
+                      <Link
+                        className={asPath === path ? 'active' : ''}
+                        href={path}
+                      >
+                        {title}
+                      </Link>
+                    </li>
+                  ))}
                   <li onClick={handleLogoutClick}>Sair</li>
                 </ul>
               </S.HeaderNavSubmenu>
