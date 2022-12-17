@@ -32,9 +32,9 @@ const HeaderNav = () => {
     if (target === currentTarget) setSubmenu(false);
   };
 
-  const handleMouseEnter = ({ target }) => {
+  const handleMouseEnter = () => {
     if (mobile) return;
-    setSubmenu(!submenu);
+    if (!submenu) setSubmenu(true);
   };
 
   useEffect(() => {
@@ -104,8 +104,11 @@ const HeaderNav = () => {
                   {authLinks.map(({ title, path }, index) => (
                     <li key={`${title}-${index}`}>
                       <Link
+                        onClick={() => setSubmenu(!submenu)}
                         className={asPath === path ? 'active' : ''}
-                        href={path}
+                        href={
+                          title === 'Meu perfil' ? `${path}/lucas_bargas` : path
+                        }
                       >
                         {title}
                       </Link>
