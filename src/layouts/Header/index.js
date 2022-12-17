@@ -7,15 +7,11 @@ import HeaderNav from './HeaderNav';
 import * as S from './styles';
 
 const Header = () => {
-  const { pathname } = useRouter();
+  const { asPath } = useRouter();
 
   return (
     <S.HeaderContainer
-      shadow={
-        pathname === '/' ||
-        pathname === '/minhas-fotos' ||
-        pathname.includes('usuario')
-      }
+      shadow={asPath === '/' || asPath.includes('lucas_bargas')}
     >
       <AppContainer>
         <HeaderMedias />

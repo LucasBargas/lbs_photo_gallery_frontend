@@ -4,6 +4,10 @@ import css from 'styled-jsx/css';
 export const HeaderContainer = styled.header`
   padding: 1rem 0;
 
+  @media (max-width: 1024px) {
+    padding: 1.5rem 0 2rem 0;
+  }
+
   ${({ shadow }) =>
     !shadow &&
     css`
