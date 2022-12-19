@@ -18,33 +18,8 @@ const authLinks = [
 ];
 
 const HeaderNav = () => {
-  const { push, asPath, pathname } = useRouter();
+  const { asPath, pathname } = useRouter();
   const { authenticated } = useAuthContext();
-  const [submenu, setSubmenu] = useState(false);
-
-  const handleLogoutClick = () => {
-    setSubmenu(false);
-    push('/entrar');
-  };
-
-  const handleClick = ({ target, currentTarget }) => {
-    if (target === currentTarget) setSubmenu(false);
-  };
-
-  useEffect(() => {
-    const handleOutsideClick = ({ target }) => {
-      if (
-        !target.closest('li#headerNavButton') &&
-        !target.closest('div#headerNavSubmenu')
-      )
-        setSubmenu(false);
-    };
-
-    window.addEventListener('click', handleOutsideClick);
-    return () => {
-      window.removeEventListener('click', handleOutsideClick);
-    };
-  }, []);
 
   return (
     <S.HeaderNavContainer>
@@ -64,38 +39,17 @@ const HeaderNav = () => {
             </li>
           ))}
 
-        {authenticated && (
-          <S.HeaderNavButtonProfile id="headerNavButton">
-            <button onClick={() => setSubmenu(!submenu)}>
-              <Image src={userNoPhoto} alt="Usuário sem foto" />
-              <span>Meu perfil</span>
-            </button>
-
-            {submenu && (
-              <S.HeaderNavSubmenu id="HeaderNavSubmenu" onClick={handleClick}>
-                <ul>
-                  <li>
-                    <IoClose onClick={() => setSubmenu(false)} />
-                  </li>
-                  {authLinks.map(({ title, path }, index) => (
-                    <li key={`${title}-${index}`}>
-                      <Link
-                        onClick={() => setSubmenu(!submenu)}
-                        className={asPath === path ? 'active' : ''}
-                        href={
-                          title === 'Meu perfil' ? `${path}lucas_bargas` : path
-                        }
-                      >
-                        {title}
-                      </Link>
-                    </li>
-                  ))}
-                  <li onClick={handleLogoutClick}>Sair</li>
-                </ul>
-              </S.HeaderNavSubmenu>
-            )}
-          </S.HeaderNavButtonProfile>
-        )}
+        {authenticated &&
+          authLinks.map(({ title, path }, index) => (
+            <li key={`${title}-${index}`}>
+              <Link
+                className={asPath === path ? 'active' : ''}
+                href={title === 'Meu perfil' ? `${path}lucas_bargas` : path}
+              >
+                {title}
+              </Link>
+            </li>
+          ))}
       </ul>
     </S.HeaderNavContainer>
   );
