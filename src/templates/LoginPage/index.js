@@ -38,25 +38,27 @@ const LoginPage = () => {
   return (
     <S.LoginPageContainer>
       <AppContainer>
-        <FormAuth title="Entrar" onSubmit={handleSubmit}>
-          <Input
-            inputRef={userIdentifierRef}
-            type={userIdentifierType}
-            label="Informe o seu usuário/email*"
-            name="userIdentifier"
-            placeholder="Seu usuário/email"
-            value={userIdentifier}
-            handleChange={({ target }) => setUserIdentifier(target.value)}
-          />
-          <Input
-            type="password"
-            label="Senha*"
-            name="password"
-            placeholder="Sua senha..."
-            handleChange={({ target }) => setPassword(target.value)}
-          />
-          <Button id="button">Entrar</Button>
-        </FormAuth>
+        <S.LoginPageWrapper>
+          <FormAuth title="Entrar" onSubmit={handleSubmit}>
+            <Input
+              inputRef={userIdentifierRef}
+              type={userIdentifierType}
+              label="Informe o seu usuário/email*"
+              name="userIdentifier"
+              placeholder="Seu usuário/email"
+              value={userIdentifier}
+              handleChange={({ target }) => setUserIdentifier(target.value)}
+            />
+            <Input
+              type="password"
+              label="Senha*"
+              name="password"
+              placeholder="Sua senha..."
+              handleChange={({ target }) => setPassword(target.value)}
+            />
+            <Button id="button">Entrar</Button>
+          </FormAuth>
+        </S.LoginPageWrapper>
       </AppContainer>
     </S.LoginPageContainer>
   );

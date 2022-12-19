@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { RegisterPageFormContainer } from './RegisterPageForm/styles';
 
 export const RegisterPageContainer = styled.section`
   @media (max-width: 1024px) {
