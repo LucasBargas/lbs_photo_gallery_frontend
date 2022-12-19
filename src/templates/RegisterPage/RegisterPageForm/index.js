@@ -7,6 +7,7 @@ import ShowPassword from '../../../components/Form/ShowPassword';
 
 const RegisterPageForm = () => {
   const [user, setUser] = useState({});
+  const [mobile, setMobile] = useState(false);
   const [inputNameLabelFor, setInputNameLabelFor] = useState('firstName');
   const [showPassword, setShowPassword] = useState(false);
   const firstNameRef = useRef();
@@ -26,6 +27,20 @@ const RegisterPageForm = () => {
     firstNameRef.current.focus();
   }, []);
 
+  useEffect(() => {
+    const handleResizeWindow = () => {
+      if (window.innerWidth <= 480) {
+        setMobile(true);
+        return;
+      }
+
+      setMobile(false);
+    };
+
+    handleResizeWindow();
+    window.addEventListener('resize', handleResizeWindow);
+  }, []);
+
   return (
     <S.RegisterPageFormContainer>
       <FormAuth
@@ -35,24 +50,44 @@ const RegisterPageForm = () => {
         confirmRedirectText="É só entrar."
         onSubmit={handleSubmit}
       >
-        <S.RegisterNameInput>
-          <label htmlFor={inputNameLabelFor}>Nos informe o seu nome*</label>
-          <S.RegisterNameInputWrapper>
+        {mobile ? (
+          <>
             <Input
               inputRef={firstNameRef}
               type="text"
+              label="Nos informe o seu primeiro nome*"
               name="firstName"
-              placeholder="Seu primeiro nome..."
+              placeholder="Exemplo: Pedro"
               handleChange={handleChange}
             />
             <Input
               type="text"
+              label="Nos informe o seu segundo nome*"
               name="secondName"
-              placeholder="Seu segundo nome..."
+              placeholder="Exemplo: Bargas"
               handleChange={handleChange}
             />
-          </S.RegisterNameInputWrapper>
-        </S.RegisterNameInput>
+          </>
+        ) : (
+          <S.RegisterNameInput>
+            <label htmlFor={inputNameLabelFor}>Nos informe o seu nome*</label>
+            <S.RegisterNameInputWrapper>
+              <Input
+                inputRef={firstNameRef}
+                type="text"
+                name="firstName"
+                placeholder="Seu primeiro nome..."
+                handleChange={handleChange}
+              />
+              <Input
+                type="text"
+                name="secondName"
+                placeholder="Seu segundo nome..."
+                handleChange={handleChange}
+              />
+            </S.RegisterNameInputWrapper>
+          </S.RegisterNameInput>
+        )}
         <Input
           type="email"
           label="Nos informe o seu e-mail*"

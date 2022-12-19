@@ -8,7 +8,7 @@ import { BsList } from 'react-icons/bs';
 
 const Header = () => {
   const { asPath } = useRouter();
-  const [headerNavMobile, setHeaderNavMobile] = useState(true);
+  const [headerNavMobile, setHeaderNavMobile] = useState(false);
 
   return (
     <S.HeaderContainer

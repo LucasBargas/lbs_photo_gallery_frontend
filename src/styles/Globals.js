@@ -14,7 +14,7 @@ const Globals = createGlobalStyle`
       font-size: 14px;
     }
 
-    @media (max-width: 300px) {
+    @media (max-width: 320px) {
       font-size: 13px;
     }
   }
