@@ -15,7 +15,7 @@ const useReqApi = (url, auth = false) => {
           auth && {
             headers: {
               Authorization: `Bearer ${JSON.parse(
-                localStorage.getItem('galleryPhotoApiToken') || '',
+                localStorage.getItem('galleryPhotoApiToken'),
               )}`,
             },
           },

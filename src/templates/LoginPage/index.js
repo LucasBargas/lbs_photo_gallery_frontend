@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as S from './styles';
 import AppContainer from '../../components/AppContainer';
 import FormAuth from '../../components/Form/FormAuth';
-import Input from '../../components/Input';
+import Input from '../../components/Form/Input';
 import Button from '../../components/Form/Button';
 import ShowPassword from '../../components/Form/ShowPassword';
 import useAuth from '../../hooks/useAuth';
