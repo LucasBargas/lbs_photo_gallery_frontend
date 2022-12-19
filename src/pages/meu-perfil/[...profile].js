@@ -1,6 +1,8 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useAuthContext from '../../hooks/useAuthContext';
+import EditPage from '../../templates/EditPage';
+import ProfilePage from '../../templates/ProfilePage';
 
 const MyProfile = () => {
   const router = useRouter();
@@ -10,7 +12,12 @@ const MyProfile = () => {
     if (!authenticated) router.push('/entrar');
   }, [authenticated, router]);
 
-  return <div>Profile</div>;
+  return router.query.profile &&
+    router.query.profile.includes('lucas_bargas') ? (
+    <ProfilePage />
+  ) : (
+    <EditPage />
+  );
 };
 
 export default MyProfile;

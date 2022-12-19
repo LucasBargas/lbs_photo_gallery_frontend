@@ -13,7 +13,7 @@ const noAuthLinks = [
 ];
 
 const authLinks = [
-  { title: 'Meu perfil', path: '/meu-perfil/lucas_bargas' },
+  { title: 'Meu perfil', path: '/meu-perfil/' },
   { title: 'Editar usuário', path: '/meu-perfil/editar-usuario' },
 ];
 
@@ -21,7 +21,6 @@ const HeaderNav = () => {
   const { push, asPath, pathname } = useRouter();
   const { authenticated } = useAuthContext();
   const [submenu, setSubmenu] = useState(false);
-  const [mobile, setMobile] = useState(false);
 
   const handleLogoutClick = () => {
     setSubmenu(false);
@@ -31,24 +30,6 @@ const HeaderNav = () => {
   const handleClick = ({ target, currentTarget }) => {
     if (target === currentTarget) setSubmenu(false);
   };
-
-  const handleMouseEnter = () => {
-    if (mobile) return;
-    if (!submenu) setSubmenu(true);
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth <= 1024) setMobile(true);
-    };
-
-    handleResize();
-
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     const handleOutsideClick = ({ target }) => {
@@ -85,10 +66,7 @@ const HeaderNav = () => {
 
         {authenticated && (
           <S.HeaderNavButtonProfile id="headerNavButton">
-            <button
-              onMouseEnter={handleMouseEnter}
-              onClick={() => setSubmenu(!submenu)}
-            >
+            <button onClick={() => setSubmenu(!submenu)}>
               <Image src={userNoPhoto} alt="Usuário sem foto" />
               <span>Meu perfil</span>
             </button>
@@ -105,7 +83,7 @@ const HeaderNav = () => {
                         onClick={() => setSubmenu(!submenu)}
                         className={asPath === path ? 'active' : ''}
                         href={
-                          title === 'Meu perfil' ? `${path}/lucas_bargas` : path
+                          title === 'Meu perfil' ? `${path}lucas_bargas` : path
                         }
                       >
                         {title}
