@@ -14,7 +14,7 @@ export const AppContainerArea = styled.div`
   }
 
   @media (max-width: 1024px) {
-    padding: 0 1.5rem;;
+    padding: 0 1.5rem;
   }
 
   @media (max-width: 480px) {
