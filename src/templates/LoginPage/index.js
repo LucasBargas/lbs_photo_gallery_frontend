@@ -4,11 +4,13 @@ import AppContainer from '../../components/AppContainer';
 import FormAuth from '../../components/Form/FormAuth';
 import Input from '../../components/Input';
 import Button from '../../components/Form/Button';
+import ShowPassword from '../../components/Form/ShowPassword';
 
 const LoginPage = () => {
   const [userIdentifier, setUserIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [userIdentifierType, setUserIdentifierType] = useState('email');
+  const [showPassword, setShowPassword] = useState(false);
   const userIdentifierRef = useRef();
 
   const handleSubmit = (e) => {
@@ -56,12 +58,13 @@ const LoginPage = () => {
               handleChange={({ target }) => setUserIdentifier(target.value)}
             />
             <Input
-              type="password"
+              type={showPassword ? 'text' : 'password'}
               label="Senha*"
               name="password"
               placeholder="Sua senha..."
               handleChange={({ target }) => setPassword(target.value)}
             />
+            <ShowPassword setShowPassword={setShowPassword} />
             <Button id="button">Entrar</Button>
           </FormAuth>
         </S.LoginPageWrapper>

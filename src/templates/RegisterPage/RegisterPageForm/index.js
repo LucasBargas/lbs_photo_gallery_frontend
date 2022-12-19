@@ -3,6 +3,7 @@ import * as S from './styles';
 import Button from '../../../components/Form/Button';
 import FormAuth from '../../../components/Form/FormAuth';
 import Input from '../../../components/Input';
+import ShowPassword from '../../../components/Form/ShowPassword';
 
 const RegisterPageForm = () => {
   const [user, setUser] = useState({});
@@ -19,11 +20,6 @@ const RegisterPageForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
-  };
-
-  const handleInputCheckedChange = ({ target }) => {
-    if (target.checked) setShowPassword(true);
-    if (!target.checked) setShowPassword(false);
   };
 
   useEffect(() => {
@@ -92,10 +88,7 @@ const RegisterPageForm = () => {
           placeholder="Confirme sua senha..."
           handleChange={handleChange}
         />
-        <S.ShowPassword>
-          <input type="checkbox" onChange={handleInputCheckedChange} />
-          Exibir senha.
-        </S.ShowPassword>
+        <ShowPassword setShowPassword={setShowPassword} />
         <Button>Cadastrar</Button>
       </FormAuth>
     </S.RegisterPageFormContainer>

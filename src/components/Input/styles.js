@@ -8,6 +8,10 @@ export const InputContainer = styled.div`
     height: 2.5rem;
     padding: 0 1.25rem;
     font-size: .75rem;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 
   input {

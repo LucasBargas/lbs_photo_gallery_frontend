@@ -27,6 +27,10 @@ export const RegisterNameInput = styled.div`
     height: 2.5rem;
     padding: 0 1.25rem;
     font-size: .75rem;
+
+    @media (max-width: 480px) {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -36,14 +40,5 @@ export const RegisterNameInputWrapper = styled.div`
   * {
     width: 50%;
     border: none;
-  }
-`;
-
-export const ShowPassword = styled.label`
-  max-width: 120px;
-  cursor: pointer;
-
-  input {
-    margin-right: .5rem;
   }
 `;
