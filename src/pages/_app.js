@@ -5,6 +5,7 @@ import AppArea from '../layouts/AppArea';
 import Header from '../layouts/Header';
 import Globals from '../styles/Globals';
 import Theme from '../styles/Theme';
+import FlashMessages from '../layouts/FlashMessages';
 
 const roboto = Roboto({
   weight: '400',
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }) {
         <AppArea className={roboto.className}>
           <Header />
           <main>
+            <FlashMessages />
             <Component {...pageProps} />
           </main>
           <Globals />

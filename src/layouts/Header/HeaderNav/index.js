@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
+import * as S from './styles';
 import { IoClose } from 'react-icons/io5';
 import useAuthContext from '../../../hooks/useAuthContext';
-import * as S from './styles';
+import useAuth from '../../../hooks/useAuth';
 
 const noAuthLinks = [
   { title: 'Entrar', path: '/entrar' },
@@ -18,6 +19,7 @@ const authLinks = [
 const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
   const { asPath, pathname } = useRouter();
   const { authenticated } = useAuthContext();
+  const { logout } = useAuth();
 
   useEffect(() => {
     const handleOutsideClick = ({ target }) => {
@@ -33,6 +35,10 @@ const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
     window.addEventListener('click', handleOutsideClick);
     return () => window.removeEventListener('click', handleOutsideClick);
   }, [headerNavMobile, setHeaderNavMobile]);
+
+  const handleLogout = () => {
+    logout();
+  };
 
   return (
     <S.HeaderNavContainer
@@ -81,6 +87,8 @@ const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
                 </Link>
               </li>
             ))}
+
+          {authenticated && <button onClick={handleLogout}>Sair</button>}
         </ul>
       </S.HeaderNavWrapper>
     </S.HeaderNavContainer>

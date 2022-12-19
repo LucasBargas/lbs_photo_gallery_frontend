@@ -4,6 +4,7 @@ import Button from '../../../components/Form/Button';
 import FormAuth from '../../../components/Form/FormAuth';
 import Input from '../../../components/Input';
 import ShowPassword from '../../../components/Form/ShowPassword';
+import useAuth from '../../../hooks/useAuth';
 
 const RegisterPageForm = () => {
   const [user, setUser] = useState({});
@@ -11,6 +12,7 @@ const RegisterPageForm = () => {
   const [inputNameLabelFor, setInputNameLabelFor] = useState('firstName');
   const [showPassword, setShowPassword] = useState(false);
   const firstNameRef = useRef();
+  const { register, errorMsg } = useAuth();
 
   const handleChange = ({ target }) => {
     if (target.name === 'firstName') setInputNameLabelFor('secondName');
@@ -20,7 +22,7 @@ const RegisterPageForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(user);
+    register(user);
   };
 
   useEffect(() => {
@@ -123,6 +125,7 @@ const RegisterPageForm = () => {
           placeholder="Confirme sua senha..."
           handleChange={handleChange}
         />
+        {errorMsg && <p>{errorMsg}</p>}
         <ShowPassword setShowPassword={setShowPassword} />
         <Button>Cadastrar</Button>
       </FormAuth>

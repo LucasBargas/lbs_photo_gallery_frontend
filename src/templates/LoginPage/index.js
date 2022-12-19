@@ -5,12 +5,14 @@ import FormAuth from '../../components/Form/FormAuth';
 import Input from '../../components/Input';
 import Button from '../../components/Form/Button';
 import ShowPassword from '../../components/Form/ShowPassword';
+import useAuth from '../../hooks/useAuth';
 
 const LoginPage = () => {
   const [userIdentifier, setUserIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [userIdentifierType, setUserIdentifierType] = useState('email');
   const [showPassword, setShowPassword] = useState(false);
+  const { login, errorMsg } = useAuth();
   const userIdentifierRef = useRef();
 
   const handleSubmit = (e) => {
@@ -21,7 +23,7 @@ const LoginPage = () => {
       password,
     };
 
-    console.log(user);
+    login(user);
   };
 
   useEffect(() => {
@@ -64,6 +66,7 @@ const LoginPage = () => {
               placeholder="Sua senha..."
               handleChange={({ target }) => setPassword(target.value)}
             />
+            {errorMsg && <p>{errorMsg}</p>}
             <ShowPassword setShowPassword={setShowPassword} />
             <Button id="button">Entrar</Button>
           </FormAuth>
