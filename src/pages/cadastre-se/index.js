@@ -18,7 +18,7 @@ const Register = () => {
       <HeadPerPage
         title="Galeria de Fotos LBS | Cadastre-se"
         url={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.pathname}`}
-        banner={bannerImg}
+        banner={bannerImg.src}
       />
       <RegisterPage />
     </>
