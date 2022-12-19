@@ -32,7 +32,13 @@ const RegisterPageForm = () => {
 
   return (
     <S.RegisterPageFormContainer>
-      <FormAuth title="Cadastre-se" onSubmit={handleSubmit}>
+      <FormAuth
+        title="Cadastre-se"
+        redirectText="Já possui uma conta?"
+        redirectHref="/entrar"
+        confirmRedirectText="É só entrar."
+        onSubmit={handleSubmit}
+      >
         <S.RegisterNameInput>
           <label htmlFor={inputNameLabelFor}>Nos informe o seu nome*</label>
           <S.RegisterNameInputWrapper>

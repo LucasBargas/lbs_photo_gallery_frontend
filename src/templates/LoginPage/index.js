@@ -39,7 +39,13 @@ const LoginPage = () => {
     <S.LoginPageContainer>
       <AppContainer>
         <S.LoginPageWrapper>
-          <FormAuth title="Entrar" onSubmit={handleSubmit}>
+          <FormAuth
+            title="Entrar"
+            redirectText="Não possui uma conta?"
+            redirectHref="/cadastre-se"
+            confirmRedirectText="Cadastre-se."
+            onSubmit={handleSubmit}
+          >
             <Input
               inputRef={userIdentifierRef}
               type={userIdentifierType}
