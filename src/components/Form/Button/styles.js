@@ -15,6 +15,7 @@ export const ButtonContainer = styled.div`
     padding: 1rem 0;
     font-size: .875rem;
     transition: .4s;
+    cursor: ${({ loading }) => (loading ? 'wait' : 'pointer')};
 
     &:hover {
       background: ${({ theme }) => theme.colors.greenColorHover};

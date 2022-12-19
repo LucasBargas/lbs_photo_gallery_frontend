@@ -12,7 +12,7 @@ const RegisterPageForm = () => {
   const [inputNameLabelFor, setInputNameLabelFor] = useState('firstName');
   const [showPassword, setShowPassword] = useState(false);
   const firstNameRef = useRef();
-  const { register, errorMsg } = useAuth();
+  const { loading, register, errorMsg } = useAuth();
 
   const handleChange = ({ target }) => {
     if (target.name === 'firstName') setInputNameLabelFor('secondName');
@@ -127,7 +127,9 @@ const RegisterPageForm = () => {
         />
         {errorMsg && <p>{errorMsg}</p>}
         <ShowPassword setShowPassword={setShowPassword} />
-        <Button>Cadastrar</Button>
+        <Button loading={loading}>
+          {loading ? 'Cadastrando...' : 'Cadastrar'}
+        </Button>
       </FormAuth>
     </S.RegisterPageFormContainer>
   );

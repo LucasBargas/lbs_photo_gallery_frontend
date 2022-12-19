@@ -5,21 +5,18 @@ import * as S from './styles';
 import { IoClose } from 'react-icons/io5';
 import useAuthContext from '../../../hooks/useAuthContext';
 import useAuth from '../../../hooks/useAuth';
+import useLoggedUserDatasContext from '../../../hooks/useLoggedUserDatasContext';
 
 const noAuthLinks = [
   { title: 'Entrar', path: '/entrar' },
   { title: 'Cadastre-se', path: '/cadastre-se' },
 ];
 
-const authLinks = [
-  { title: 'Meu perfil', path: '/meu-perfil/' },
-  { title: 'Editar usuário', path: '/meu-perfil/editar-usuario' },
-];
-
 const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
   const { asPath, pathname } = useRouter();
   const { authenticated } = useAuthContext();
   const { logout } = useAuth();
+  const { datas } = useLoggedUserDatasContext();
 
   useEffect(() => {
     const handleOutsideClick = ({ target }) => {
@@ -75,18 +72,30 @@ const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
               </li>
             ))}
 
-          {authenticated &&
-            authLinks.map(({ title, path }, index) => (
-              <li key={`${title}-${index}`}>
+          {authenticated && (
+            <>
+              <li>
                 <Link
                   onClick={() => setHeaderNavMobile(false)}
-                  className={asPath === path ? 'active' : ''}
-                  href={title === 'Meu perfil' ? `${path}lucas_bargas` : path}
+                  className={
+                    datas && asPath.includes(datas.userName) ? 'active' : ''
+                  }
+                  href={`/${datas && datas.userName}`}
                 >
-                  {title}
+                  Meu perfil
                 </Link>
               </li>
-            ))}
+              <li>
+                <Link
+                  onClick={() => setHeaderNavMobile(false)}
+                  className={asPath.includes('editar-perfil') ? 'active' : ''}
+                  href={`/editar-perfil`}
+                >
+                  Editar perfil
+                </Link>
+              </li>
+            </>
+          )}
 
           {authenticated && <button onClick={handleLogout}>Sair</button>}
         </ul>

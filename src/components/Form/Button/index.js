@@ -1,9 +1,9 @@
 import React from 'react';
 import * as S from './styles';
 
-const Button = ({ children }) => {
+const Button = ({ loading, children }) => {
   return (
-    <S.ButtonContainer>
+    <S.ButtonContainer loading={loading}>
       <button>{children}</button>
     </S.ButtonContainer>
   );

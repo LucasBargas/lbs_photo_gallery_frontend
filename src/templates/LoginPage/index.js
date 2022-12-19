@@ -12,7 +12,7 @@ const LoginPage = () => {
   const [password, setPassword] = useState('');
   const [userIdentifierType, setUserIdentifierType] = useState('email');
   const [showPassword, setShowPassword] = useState(false);
-  const { login, errorMsg } = useAuth();
+  const { loading, login, errorMsg } = useAuth();
   const userIdentifierRef = useRef();
 
   const handleSubmit = (e) => {
@@ -68,7 +68,9 @@ const LoginPage = () => {
             />
             {errorMsg && <p>{errorMsg}</p>}
             <ShowPassword setShowPassword={setShowPassword} />
-            <Button id="button">Entrar</Button>
+            <Button loading={loading}>
+              {loading ? 'Entrando...' : 'Entrar'}
+            </Button>
           </FormAuth>
         </S.LoginPageWrapper>
       </AppContainer>

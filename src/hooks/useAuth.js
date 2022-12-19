@@ -13,7 +13,7 @@ const useAuth = () => {
   const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('apiToken');
+    const token = localStorage.getItem('galleryPhotoApiToken');
     if (token) {
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
@@ -58,7 +58,7 @@ const useAuth = () => {
   const logout = () => {
     try {
       setAuthenticated(false);
-      localStorage.removeItem('apiToken');
+      localStorage.removeItem('galleryPhotoApiToken');
       api.defaults.headers.Authorization = undefined;
       router.push('/entrar');
     } catch (error) {
@@ -75,13 +75,13 @@ const useAuth = () => {
         .delete('/users/delete', {
           headers: {
             Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem('apiToken') || '',
+              localStorage.getItem('galleryPhotoApiToken') || '',
             )}`,
           },
         })
         .then((response) => {
           setAuthenticated(false);
-          localStorage.removeItem('apiToken');
+          localStorage.removeItem('galleryPhotoApiToken');
           api.defaults.headers.Authorization = undefined;
           setLoading(false);
           router.push('/entrar');
