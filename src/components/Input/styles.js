@@ -5,7 +5,6 @@ export const InputContainer = styled.div`
 
   label, input {
     width: 100%;
-    border: 1px solid #ccc;
     height: 2.5rem;
     padding: 0 1.25rem;
     font-size: .75rem;
@@ -13,6 +12,7 @@ export const InputContainer = styled.div`
 
   input {
     display: block;
+    border: 1px solid #ccc;
   }
 
   label {

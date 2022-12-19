@@ -38,3 +38,12 @@ export const RegisterNameInputWrapper = styled.div`
     border: none;
   }
 `;
+
+export const ShowPassword = styled.label`
+  max-width: 120px;
+  cursor: pointer;
+
+  input {
+    margin-right: .5rem;
+  }
+`;
