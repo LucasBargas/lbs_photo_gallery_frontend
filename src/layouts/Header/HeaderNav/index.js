@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 const noAuthLinks = [
   { title: 'Entrar', path: '/entrar' },
-  { title: 'Cadastrar-se', path: '/cadastrar-se' },
+  { title: 'Cadastre-se', path: '/cadastre-se' },
 ];
 
 const authLinks = [

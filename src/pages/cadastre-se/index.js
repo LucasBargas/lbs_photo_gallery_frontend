@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useAuthContext from '../../hooks/useAuthContext';
+import RegisterPage from '../../templates/RegisterPage';
 
 const Register = () => {
   const router = useRouter();
@@ -10,7 +11,7 @@ const Register = () => {
     if (authenticated) router.push('/');
   }, [authenticated, router]);
 
-  return <div>Register</div>;
+  return <RegisterPage />;
 };
 
 export default Register;

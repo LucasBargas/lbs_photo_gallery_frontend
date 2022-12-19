@@ -37,6 +37,10 @@ const Globals = createGlobalStyle`
       outline: none;
       cursor: pointer;
       display: inline-block;
+      font-family: sans-serif;
+      font-size: 1rem;
+      text-transform: uppercase;
+      font-weight: 700;
     }
 
     a {

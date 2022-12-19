@@ -42,7 +42,7 @@ export const HeaderNavContainer = styled.nav`
         &::after {
           content: '';
           height: 6px;
-          width: calc(100% + 4px);
+          width: calc(100% + .625rem);
           background: #006400;
           position: absolute;
           transform: translateX(-50%);
