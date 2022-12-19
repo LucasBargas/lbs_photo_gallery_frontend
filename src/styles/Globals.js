@@ -51,6 +51,7 @@ const Globals = createGlobalStyle`
 
     span, svg, a {
       display: block;
+      color: ${({ theme }) => theme.colors.primaryColor};
     }
 
     p {
