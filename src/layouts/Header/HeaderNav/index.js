@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import * as S from './styles';
 import { IoClose } from 'react-icons/io5';
+import { MdLogout } from 'react-icons/md';
 import useAuthContext from '../../../hooks/useAuthContext';
 import useAuth from '../../../hooks/useAuth';
 import useLoggedUserDatasContext from '../../../hooks/useLoggedUserDatasContext';
@@ -35,6 +36,7 @@ const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
 
   const handleLogout = () => {
     logout();
+    setHeaderNavMobile(false);
   };
 
   return (
@@ -94,10 +96,11 @@ const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
                   Editar perfil
                 </Link>
               </li>
+              <S.HeaderButtonLogout onClick={handleLogout}>
+                <MdLogout />
+              </S.HeaderButtonLogout>
             </>
           )}
-
-          {authenticated && <button onClick={handleLogout}>Sair</button>}
         </ul>
       </S.HeaderNavWrapper>
     </S.HeaderNavContainer>

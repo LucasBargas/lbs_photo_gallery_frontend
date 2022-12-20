@@ -112,3 +112,23 @@ export const HeaderMobileButtonClose = styled.div`
     }
   }
 `;
+
+export const HeaderButtonLogout = styled.button`
+  border: none;
+  background: transparent;
+  padding: .5rem 0 .5rem .5rem;
+  font-size: 1.5rem;
+
+  @media (max-width: 1024px) {
+    display: block;
+    padding: .75rem .75rem .75rem 0;
+  }
+
+  svg {
+    color: ${({ theme }) => theme.colors.primaryColor};
+
+    @media (max-width: 1024px) {
+      color: ${({ theme }) => theme.colors.lightColor};
+    }
+  }
+`;
