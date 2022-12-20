@@ -1,7 +1,7 @@
-const authUser = async (setAuthenticated, data, router) => {
+const authUser = async (setAuthenticated, data, navigate) => {
   setAuthenticated(true);
   localStorage.setItem('galleryPhotoApiToken', JSON.stringify(data));
-  router.push('/');
+  navigate('/');
 };
 
 export default authUser;
