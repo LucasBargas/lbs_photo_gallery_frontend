@@ -22,7 +22,7 @@ const App = () => (
           <Route path="/" index element={<Homepage />} />
           <Route path="/entrar" element={<Login />} />
           <Route path="/cadastre-se" element={<Register />} />
-          <Route path="/:userName" element={<Profile />} />
+          <Route path="/meu-perfil" element={<Profile />} />
           <Route path="/editar-perfil" element={<EditProfile />} />
         </Routes>
       </main>
