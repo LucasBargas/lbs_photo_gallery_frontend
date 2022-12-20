@@ -2,7 +2,6 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import AppArea from './layouts/AppArea';
-import FlashMessages from './layouts/FlashMessages';
 import Header from './layouts/Header';
 import EditProfile from './pages/EditProfile';
 import Homepage from './pages/Homepage';
@@ -17,7 +16,6 @@ const App = () => (
     <AppArea>
       <Header />
       <main>
-        <FlashMessages />
         <Routes>
           <Route path="/" index element={<Homepage />} />
           <Route path="/entrar" element={<Login />} />

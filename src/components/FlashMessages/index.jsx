@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import React, { useEffect, useState } from 'react';
 import bus from '../../utils/bus';
 import * as S from './styles';
@@ -10,7 +11,6 @@ const FlashMessages = () => {
   useEffect(() => {
     bus.addListener('flash', ({ message, type }) => {
       setVisibility(true);
-      // window.scrollTo({ top: 0, behavior: 'smooth' });
       setMsg(message);
       setType(type);
 

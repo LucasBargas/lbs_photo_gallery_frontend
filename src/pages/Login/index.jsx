@@ -6,13 +6,14 @@ import Input from '../../components/Form/Input';
 import Button from '../../components/Form/Button';
 import ShowPassword from '../../components/Form/ShowPassword';
 import useAuth from '../../hooks/useAuth';
+import FlashMessages from '../../components/FlashMessages';
 
 const Login = () => {
   const [userIdentifier, setUserIdentifier] = useState('');
   const [password, setPassword] = useState('');
   const [userIdentifierType, setUserIdentifierType] = useState('email');
   const [showPassword, setShowPassword] = useState(false);
-  const { loading, login, errorMsg } = useAuth();
+  const { loading, login } = useAuth();
   const userIdentifierRef = useRef();
 
   const handleSubmit = (e) => {
@@ -66,7 +67,8 @@ const Login = () => {
               placeholder="Sua senha..."
               handleChange={({ target }) => setPassword(target.value)}
             />
-            {errorMsg && <p>{errorMsg}</p>}
+
+            <FlashMessages />
             <ShowPassword setShowPassword={setShowPassword} />
             <Button loading={loading}>
               {loading ? 'Entrando...' : 'Entrar'}

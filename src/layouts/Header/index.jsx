@@ -10,8 +10,6 @@ const Header = () => {
   const location = useLocation();
   const [headerNavMobile, setHeaderNavMobile] = useState(false);
 
-  console.log(location);
-
   return (
     <S.HeaderContainer
       shadow={location.pathname !== '/' && location.pathname !== '/meu-perfil'}
