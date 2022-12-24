@@ -20,9 +20,9 @@ const Globals = createGlobalStyle`
   }
 
   body {
+    font-family: Helvetica, sans-serif;
     background: ${({ theme }) => theme.colors.lightColor};
     color: ${({ theme }) => theme.colors.primaryColor};
-    font-family: Helvetica;
 
     ul, li {
       list-style: none;
@@ -30,7 +30,7 @@ const Globals = createGlobalStyle`
 
     input, textarea {
       outline: none;
-      font-family: Helvetica;
+      font-family: Helvetica, sans-serif;
       font-size: .875rem;
     }
 
@@ -38,7 +38,7 @@ const Globals = createGlobalStyle`
       outline: none;
       cursor: pointer;
       display: inline-block;
-      font-family: Helvetica;
+      font-family: Helvetica, sans-serif;
       font-size: 1rem;
       text-transform: uppercase;
       font-weight: 700;
