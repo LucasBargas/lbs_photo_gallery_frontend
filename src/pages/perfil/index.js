@@ -14,7 +14,7 @@ const MyProfile = () => {
         title="Perfil"
         url={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.pathname}`}
       />
-      <div>{datas && <ProfilePage datas={datas} />}</div>
+      {datas && <ProfilePage datas={datas} />}
     </>
   );
 };
