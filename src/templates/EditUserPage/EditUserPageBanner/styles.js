@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const RegisterPageBannerContainer = styled.div`
+export const EditUserPageBannerContainer = styled.div`
   background-image: url(${({ banner }) => banner});
   background-position: center;
   background-size: cover;

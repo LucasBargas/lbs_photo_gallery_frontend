@@ -14,7 +14,7 @@ const EditUser = () => {
         title="Editar usuário"
         url={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.pathname}`}
       />
-      <div>{datas && <EditUserPage datas={datas} />}</div>
+      {datas && <EditUserPage datas={datas} />}
     </>
   );
 };

@@ -1,10 +1,14 @@
 import React from 'react';
+import * as S from './styles';
+import EditUserPageBanner from './EditUserPageBanner';
 
 const EditUserPage = ({ datas }) => {
   return (
-    <div>
-      <p>{datas.userName}</p>
-    </div>
+    <S.EditUserPageContainer>
+      <S.EditUserPageWrapper>
+        <EditUserPageBanner />
+      </S.EditUserPageWrapper>
+    </S.EditUserPageContainer>
   );
 };
 
