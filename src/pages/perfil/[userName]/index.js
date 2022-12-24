@@ -29,15 +29,12 @@ export const getStaticProps = async (context) => {
   );
   const userByUserName = await resUserByUserName.json();
 
-  const resPhotos = await fetch(`${apiUrl}/photos/${context.params.userName}`);
-  const photos = await resPhotos.json();
-
   return {
-    props: { userByUserName, photos },
+    props: { userByUserName },
   };
 };
 
-const ProfileByUserName = ({ userByUserName, photos }) => {
+const ProfileByUserName = ({ userByUserName }) => {
   const { datas } = useReqApi(`${apiUrl}/users/auth-user`, true);
   const router = useRouter();
 
