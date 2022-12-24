@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import HeadPerPage from '../../components/HeadPerPage';
 import EditUserPage from '../../templates/EditUserPage';
-import bannerImg from '../../../public/photographer_edit.png';
+import bannerImg from '../../../public/photographer_edit.jpg';
 
 const EditUser = () => {
   const router = useRouter();

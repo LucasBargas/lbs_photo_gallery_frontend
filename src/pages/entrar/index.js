@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import LoginPage from '../../templates/LoginPage';
 import HeadPerPage from '../../components/HeadPerPage';
-import bannerImg from '../../../public/photographer_login.png';
+import bannerImg from '../../../public/photographer_login.jpg';
 
 const Login = () => {
   const router = useRouter();

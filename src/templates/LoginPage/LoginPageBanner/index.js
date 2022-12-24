@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styles';
-import bannerImg from '../../../../public/photographer_login.png';
+import bannerImg from '../../../../public/photographer_login.jpg';
 
 const LoginPageBanner = () => {
   return (

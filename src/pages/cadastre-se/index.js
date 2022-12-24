@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import React from 'react';
 import RegisterPage from '../../templates/RegisterPage';
-import bannerImg from '../../../public/photographer_register.png';
+import bannerImg from '../../../public/photographer_register.jpg';
 import HeadPerPage from '../../components/HeadPerPage';
 
 const Register = () => {
