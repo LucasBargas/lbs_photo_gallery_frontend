@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const LoginPageContainer = styled.section`
-  padding: 3rem 0;
+  @media (max-width: 1024px) {
+    padding: 3rem 0;
+  }
 `;
 
 export const LoginPageWrapper = styled.div`
-  max-width: 600px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+  @media (max-width: 1024px) {
+    display: block;
+  }
 `;

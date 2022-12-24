@@ -1,6 +1,6 @@
 import React from 'react';
 import * as S from './styles';
-import bannerImg from '../../../../public/photographer.jpg';
+import bannerImg from '../../../../public/photographer_edit.png';
 
 const EditUserPageBanner = () => {
   return (

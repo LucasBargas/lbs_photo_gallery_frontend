@@ -8,8 +8,7 @@ export const EditUserPageContainer = styled.section`
 
 export const EditUserPageWrapper = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: center;
+  grid-template-columns: 45% 55%;
 
   @media (max-width: 1024px) {
     display: block;
