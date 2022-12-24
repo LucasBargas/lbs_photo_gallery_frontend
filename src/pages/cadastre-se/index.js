@@ -1,17 +1,11 @@
 import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
-import useAuthContext from '../../hooks/useAuthContext';
+import React from 'react';
 import RegisterPage from '../../templates/RegisterPage';
 import bannerImg from '../../../public/photographer.jpg';
 import HeadPerPage from '../../components/HeadPerPage';
 
 const Register = () => {
   const router = useRouter();
-  const { authenticated } = useAuthContext();
-
-  useEffect(() => {
-    authenticated ? router.push('/') : router.push('/cadastre-se');
-  }, [authenticated, router]);
 
   return (
     <>

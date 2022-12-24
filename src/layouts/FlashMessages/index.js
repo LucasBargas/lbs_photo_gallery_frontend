@@ -10,7 +10,6 @@ const FlashMessages = () => {
   useEffect(() => {
     bus.addListener('flash', ({ message, type }) => {
       setVisibility(true);
-      // window.scrollTo({ top: 0, behavior: 'smooth' });
       setMsg(message);
       setType(type);
 

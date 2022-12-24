@@ -49,6 +49,7 @@ export const HeaderNavWrapper = styled.div`
       font-weight: 500;
       text-transform: uppercase;
       font-size: .875rem;
+      padding: .5rem 0;
 
       @media (max-width: 1024px) {
         font-size: 1rem;
@@ -73,7 +74,7 @@ export const HeaderNavWrapper = styled.div`
           position: absolute;
           transform: translateX(-50%);
           left: 50%;
-          bottom: 2px;
+          bottom: 10px;
           border-radius: 6px;
           opacity: .6;
           z-index: 2;

@@ -68,9 +68,9 @@ const LoginPage = () => {
             />
             {errorMsg && <p>{errorMsg}</p>}
             <ShowPassword setShowPassword={setShowPassword} />
-            <Button loading={loading}>
-              {loading ? 'Entrando...' : 'Entrar'}
-            </Button>
+
+            {loading && <Button loading={loading}>Entrando...</Button>}
+            {!loading && <Button loading={loading}>Entrar</Button>}
           </FormAuth>
         </S.LoginPageWrapper>
       </AppContainer>

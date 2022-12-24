@@ -127,9 +127,8 @@ const RegisterPageForm = () => {
         />
         {errorMsg && <p>{errorMsg}</p>}
         <ShowPassword setShowPassword={setShowPassword} />
-        <Button loading={loading}>
-          {loading ? 'Cadastrando...' : 'Cadastrar'}
-        </Button>
+        {loading && <Button loading={loading}>Cadastrando...</Button>}
+        {!loading && <Button loading={loading}>Cadastrar</Button>}
       </FormAuth>
     </S.RegisterPageFormContainer>
   );
