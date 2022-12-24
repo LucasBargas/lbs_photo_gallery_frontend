@@ -3,7 +3,7 @@ import * as S from './styles';
 import EditUserPageBanner from './EditUserPageBanner';
 import EditUserPageForm from './EditUserPageForm';
 
-const EditUserPage = ({ datas }) => {
+const EditUserPage = () => {
   return (
     <S.EditUserPageContainer>
       <S.EditUserPageWrapper>

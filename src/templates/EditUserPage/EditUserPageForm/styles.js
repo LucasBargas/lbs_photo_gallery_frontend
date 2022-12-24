@@ -13,3 +13,10 @@ export const EditUserPageFormContainer = styled.section`
     padding: 0 1.25rem;
   }
 `;
+
+export const EditUserPageFormWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const EditUserPageFormPhoto = styled.div``;
