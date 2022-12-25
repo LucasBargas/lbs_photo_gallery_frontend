@@ -11,7 +11,7 @@ const Login = () => {
     <>
       <HeadPerPage
         title="Galeria de Fotos LBS | Entrar"
-        url={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.pathname}`}
+        url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.pathname}`}
         banner={bannerImg.src}
       />
       <LoginPage />

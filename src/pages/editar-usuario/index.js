@@ -11,7 +11,7 @@ const EditUser = () => {
     <>
       <HeadPerPage
         title="Editar usuário"
-        url={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.pathname}`}
+        url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.pathname}`}
         banner={bannerImg.src}
       />
       <EditUserPage />

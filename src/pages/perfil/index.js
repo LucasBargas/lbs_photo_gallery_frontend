@@ -12,7 +12,7 @@ const MyProfile = () => {
     <>
       <HeadPerPage
         title="Perfil"
-        url={`${process.env.NEXT_PUBLIC_APP_DOMAIN}${router.pathname}`}
+        url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.pathname}`}
       />
       {datas && <ProfilePage datas={datas} />}
     </>
