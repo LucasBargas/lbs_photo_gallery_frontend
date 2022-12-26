@@ -29,14 +29,21 @@ export const getStaticProps = async (context) => {
   );
   const userByUserName = await resUserByUserName.json();
 
+  const resPhotosByUserName = await fetch(
+    `${apiUrl}/photos/${context.params.userName}`,
+  );
+  const photosByUserName = await resPhotosByUserName.json();
+
   return {
-    props: { userByUserName },
+    props: { userByUserName, photosByUserName },
   };
 };
 
-const ProfileByUserName = ({ userByUserName }) => {
+const ProfileByUserName = ({ userByUserName, photosByUserName }) => {
   const { datas } = useReqApi(`${apiUrl}/users/auth-user`, true);
   const router = useRouter();
+
+  console.log(photosByUserName);
 
   useEffect(() => {
     if (datas?.userName === userByUserName.userName) {

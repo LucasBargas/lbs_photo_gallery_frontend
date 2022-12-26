@@ -11,9 +11,7 @@ const Header = () => {
   const [headerNavMobile, setHeaderNavMobile] = useState(false);
 
   return (
-    <S.HeaderContainer
-      shadow={pathname !== '/' && !pathname.includes('perfil')}
-    >
+    <S.HeaderContainer shadow={pathname !== '/'}>
       <AppContainer>
         <S.HeaderArea>
           <HeaderLogo />
