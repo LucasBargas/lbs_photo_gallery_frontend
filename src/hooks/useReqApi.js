@@ -3,7 +3,6 @@ import api from '../utils/api';
 
 const useReqApi = (url, auth = false) => {
   const [datas, setDatas] = useState(null);
-  const [reqError, setReqError] = useState(null);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -24,12 +23,13 @@ const useReqApi = (url, auth = false) => {
         )
         .then((response) => {
           setDatas(response.data);
-          setReqError(null);
           setLoading(false);
+          return response.data;
         })
         .catch((err) => {
-          setReqError(err.response.data.message);
+          console.log(err);
           setLoading(false);
+          return;
         });
     };
 
@@ -39,8 +39,6 @@ const useReqApi = (url, auth = false) => {
   return {
     datas,
     setDatas,
-    reqError,
-    setReqError,
     loading,
   };
 };

@@ -26,6 +26,7 @@ const EditUserPageFormPreview = ({ user, setUser }) => {
             alt="Foto do usuário"
             width={45}
             height={45}
+            priority
           />
         )}
 
@@ -35,6 +36,7 @@ const EditUserPageFormPreview = ({ user, setUser }) => {
             alt="Foto do usuário"
             width={45}
             height={45}
+            priority
           />
         )}
 
@@ -44,11 +46,18 @@ const EditUserPageFormPreview = ({ user, setUser }) => {
             alt="Foto do usuário"
             width={45}
             height={45}
+            priority
           />
         )}
 
         {!previewPhoto && !user.userPhoto && (
-          <Image src={noPhoto} alt="Foto do usuário" width={45} height={45} />
+          <Image
+            src={noPhoto}
+            alt="Foto do usuário"
+            width={45}
+            height={45}
+            priority
+          />
         )}
       </figure>
       <input

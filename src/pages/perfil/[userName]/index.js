@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import HeadPerPage from '../../../components/HeadPerPage';
 import useReqApi from '../../../hooks/useReqApi';
+import ProfilePage from '../../../templates/ProfilePage';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -24,41 +25,33 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context) => {
-  const resUserByUserName = await fetch(
-    `${apiUrl}/users/${context.params.userName}`,
-  );
-  const userByUserName = await resUserByUserName.json();
-
-  const resPhotosByUserName = await fetch(
-    `${apiUrl}/photos/${context.params.userName}`,
-  );
-  const photosByUserName = await resPhotosByUserName.json();
+  const { userName } = context.params;
+  const res = await fetch(`${apiUrl}/users/${userName}`);
+  const user = await res.json();
 
   return {
-    props: { userByUserName, photosByUserName },
+    props: { user },
   };
 };
 
-const ProfileByUserName = ({ userByUserName, photosByUserName }) => {
+const ProfileByUserName = ({ user }) => {
   const { datas } = useReqApi(`${apiUrl}/users/auth-user`, true);
   const router = useRouter();
 
-  console.log(photosByUserName);
-
   useEffect(() => {
-    if (datas?.userName === userByUserName.userName) {
+    if (datas?.userName === user.userName) {
       router.push('/perfil');
     }
-  }, [datas, userByUserName.userName, router]);
+  }, [datas, user.userName, router]);
 
   return (
     <>
       <HeadPerPage
-        title={userByUserName.userName}
+        title={user.userName}
         url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.asPath}`}
       />
 
-      <p>{userByUserName.userName} - conectado</p>
+      <ProfilePage authUser={false} user={user} />
     </>
   );
 };

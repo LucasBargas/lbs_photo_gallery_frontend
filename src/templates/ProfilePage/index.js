@@ -1,15 +1,14 @@
 import React from 'react';
+import * as S from './styles';
 import ProfileDatas from '../../components/ProfileDatas';
 import useReqApi from '../../hooks/useReqApi';
 
-const ProfilePage = ({ user }) => {
-  const { datas: photos } = useReqApi(`photos/${user.userName}`);
-
+const ProfilePage = ({ authUser, user }) => {
+  const { datas } = useReqApi(`photos/${user.userName}`);
   return (
-    <div>
-      <ProfileDatas user={user} />
-      <p>{user.userName}</p>
-    </div>
+    <S.ProfilePageContainer>
+      <ProfileDatas authUser={authUser} user={user} photos={datas} />
+    </S.ProfilePageContainer>
   );
 };
 
