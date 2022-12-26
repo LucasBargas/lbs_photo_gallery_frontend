@@ -27,6 +27,10 @@ export const EditUserPageFormArea = styled.form`
   gap: 1rem;
   padding-top: 1rem;
 
+  @media (max-width: 390px) {
+    padding-top: .25rem;
+  }
+
   ${ButtonContainer} {
     justify-content: flex-start;
 
@@ -46,10 +50,20 @@ export const EditUserPageFormArea = styled.form`
 export const EditUserPageFormField = styled.div`
   display: flex;
 
+  @media (max-width: 390px) {
+    flex-direction: column;
+  }
+
   label {
     font-weight: 700;
     height: 2.5rem;
     width: 25%;
+
+    @media (max-width: 390px) {
+      width: 100%;
+      height: auto;
+      padding: .75rem 0;
+    }
   }
 
   input {
@@ -65,6 +79,10 @@ export const EditUserPageFormField = styled.div`
   input, textarea {
     width: 75%;
     border: 1px solid #ccc;
+
+    @media (max-width: 390px) {
+      width: 100%;
+    }
 
     &:focus {
       border: 2px solid ${({ theme }) => theme.colors.greenColor};

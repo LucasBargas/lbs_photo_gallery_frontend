@@ -21,6 +21,7 @@ export const EditUserPageFormPreviewContainer = styled.div`
   h1 {
     font-weight: 400;
     font-size: 1.325rem;
+    margin-bottom: .25rem;
   }
 
   button {

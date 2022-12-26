@@ -24,8 +24,8 @@ const EditUserPageFormPreview = ({ user, setUser }) => {
           <Image
             src={URL.createObjectURL(previewPhoto)}
             alt="Foto do usuário"
-            width={40}
-            height={40}
+            width={45}
+            height={45}
           />
         )}
 
@@ -33,8 +33,8 @@ const EditUserPageFormPreview = ({ user, setUser }) => {
           <Image
             src={URL.createObjectURL(previewPhoto)}
             alt="Foto do usuário"
-            width={40}
-            height={40}
+            width={45}
+            height={45}
           />
         )}
 
@@ -42,13 +42,13 @@ const EditUserPageFormPreview = ({ user, setUser }) => {
           <Image
             src={`${apiUrlUsersPhotos}/${user.userPhoto}`}
             alt="Foto do usuário"
-            width={40}
-            height={40}
+            width={45}
+            height={45}
           />
         )}
 
         {!previewPhoto && !user.userPhoto && (
-          <Image src={noPhoto} alt="Foto do usuário" width={40} height={40} />
+          <Image src={noPhoto} alt="Foto do usuário" width={45} height={45} />
         )}
       </figure>
       <input
