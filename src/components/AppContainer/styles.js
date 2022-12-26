@@ -5,11 +5,7 @@ export const AppContainerArea = styled.div`
   max-width: 1200px;
   margin: 0 auto;
 
-  @media (max-width: 1280px) {
-    max-width: 1100px;
-  }
-
-  @media (max-width: 1260px) {
+  @media (max-width: 1366px) {
     max-width: 1100px;
   }
 

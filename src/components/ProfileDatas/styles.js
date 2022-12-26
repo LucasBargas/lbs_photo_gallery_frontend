@@ -1,13 +1,6 @@
 import styled from 'styled-components';
-import { AppContainerArea } from '../AppContainer/styles';
 
 export const ProfileDatasContainer = styled.div`
-  ${AppContainerArea} {
-    max-width: 1000px;
-  }
-`;
-
-export const ProfileDatasWrapper = styled.div`
   display: flex;
   gap: 4rem;
 
