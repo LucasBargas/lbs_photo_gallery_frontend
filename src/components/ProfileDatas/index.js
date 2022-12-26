@@ -74,7 +74,9 @@ const ProfileDatas = ({ authUser, user, photos }) => {
               {user.firstName} {user.secondName}
             </strong>
           </li>
-          <li>{user.bio}</li>
+          <li>
+            <p>{user.bio}</p>
+          </li>
         </ul>
       </S.ProfileDatasInfos>
     </S.ProfileDatasContainer>

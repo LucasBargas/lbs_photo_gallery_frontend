@@ -4,10 +4,29 @@ export const ProfileDatasContainer = styled.div`
   display: flex;
   gap: 4rem;
 
+  @media (max-width: 576px) {
+    gap: 2rem;
+  }
+
+  @media (max-width: 390px) {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
   figure {
     img {
       object-fit: cover;
       border-radius: 100%;
+
+      @media (max-width: 480px) {
+        width: 100px;
+        height: 100px;
+      }
+
+      @media (max-width: 390px) {
+        width: 80px;
+        height: 80px;
+      }
     }
   }
 `;
@@ -25,7 +44,7 @@ export const ProfileDatasInfos = styled.div`
     &:last-of-type {
       flex-direction: column;
       align-items: flex-start;
-      gap: .25rem;
+      gap: .125rem;
     }
 
     li {
