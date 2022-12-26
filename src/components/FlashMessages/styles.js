@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const FlashMessagesContainer = styled.div`
   width: 100%;
-  padding: .5rem .75rem;
+  padding: .75rem;
   border-radius: 3px;
   font-size: .875rem;
   font-weight: 700;

@@ -6,12 +6,14 @@ import api from '../../../utils/api';
 import ShowPassword from '../../../components/Form/ShowPassword';
 import FlashMessages from '../../../components/FlashMessages';
 import useFlashMessages from '../../../hooks/useFlashMessages';
+import useAuth from '../../../hooks/useAuth';
 
 const EditUserPageForm = ({ datas }) => {
   const [user, setUser] = useState(datas || {});
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { setFlashMessage } = useFlashMessages();
+  const { deleteAccount } = useAuth();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -51,27 +53,6 @@ const EditUserPageForm = ({ datas }) => {
       setFlashMessage(msgText, msgType);
       setLoading(false);
     }
-
-    // setLoading(true);
-    // await api
-    //   .patch('users/edit', formData, {
-    //     headers: {
-    //       Authorization:
-    //         typeof window !== 'undefined' &&
-    //         `Bearer ${JSON.parse(
-    //           localStorage.getItem('galleryPhotoApiToken'),
-    //         )}`,
-    //       'Content-Type': 'multipart/form-data',
-    //     },
-    //   })
-    //   .then((response) => {
-    //     setLoading(false);
-    //     return response.data;
-    //   })
-    //   .catch((error) => {
-    //     setLoading(false);
-    //     return error.response.data;
-    //   });
   };
 
   return (

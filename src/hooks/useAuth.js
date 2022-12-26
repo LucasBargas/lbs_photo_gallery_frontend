@@ -75,36 +75,30 @@ const useAuth = () => {
   };
 
   const deleteAccount = async () => {
-    const deleteDatas = async () => {
-      let msgType = 'success';
-      setLoading(true);
+    setLoading(true);
 
-      const data = await api
-        .delete('/users/delete', {
-          headers: {
-            Authorization: `Bearer ${JSON.parse(
-              localStorage.getItem('galleryPhotoApiToken') || '',
+    await api
+      .delete('/users/delete', {
+        headers: {
+          Authorization:
+            typeof window !== 'undefined' &&
+            `Bearer ${JSON.parse(
+              localStorage.getItem('galleryPhotoApiToken'),
             )}`,
-          },
-        })
-        .then((response) => {
-          setAuthenticated(false);
-          localStorage.removeItem('galleryPhotoApiToken');
-          api.defaults.headers.Authorization = undefined;
-          setLoading(false);
-          router.push('/entrar');
-          return response.data;
-        })
-        .catch((err) => {
-          msgType = 'error';
-          setLoading(false);
-          return err.response.data;
-        });
-
-      setFlashMessage(data.message, msgType);
-    };
-
-    deleteDatas();
+        },
+      })
+      .then((response) => {
+        setAuthenticated(false);
+        localStorage.removeItem('galleryPhotoApiToken');
+        api.defaults.headers.Authorization = undefined;
+        setLoading(false);
+        router.push('/entrar');
+        return response.data;
+      })
+      .catch((err) => {
+        console.log(err);
+        return;
+      });
   };
 
   return {
