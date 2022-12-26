@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import * as S from './styles';
-import AppContainer from '../AppContainer';
 import Image from 'next/image';
 import noPhoto from '../../../public/user.png';
 import Link from 'next/link';
