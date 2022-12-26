@@ -15,7 +15,7 @@ const FlashMessages = () => {
 
       setTimeout(() => {
         setVisibility(false);
-      }, 3000);
+      }, 4000);
     });
   }, []);
 

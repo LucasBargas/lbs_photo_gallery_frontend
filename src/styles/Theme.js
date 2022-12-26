@@ -4,6 +4,7 @@ const Theme = {
     lightColor: '#FFFFFF',
     greenColor: '#238636',
     greenColorHover: '#26a641',
+    tomatoColor: '#ff6347',
   },
 };
 

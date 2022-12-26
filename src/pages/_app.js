@@ -4,16 +4,14 @@ import AppArea from '../layouts/AppArea';
 import Header from '../layouts/Header';
 import Globals from '../styles/Globals';
 import Theme from '../styles/Theme';
-import FlashMessages from '../layouts/FlashMessages';
 
-function MyApp({ Component, pageProps }) {
+const MyApp = ({ Component, pageProps }) => {
   return (
     <AuthProvider>
       <ThemeProvider theme={Theme}>
         <AppArea>
           <Header />
           <main>
-            <FlashMessages />
             <Component {...pageProps} />
           </main>
           <Globals />
@@ -21,6 +19,6 @@ function MyApp({ Component, pageProps }) {
       </ThemeProvider>
     </AuthProvider>
   );
-}
+};
 
 export default MyApp;

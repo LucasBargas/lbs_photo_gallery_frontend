@@ -5,6 +5,7 @@ import FormAuth from '../../../components/Form/FormAuth';
 import Input from '../../../components/Form/Input';
 import ShowPassword from '../../../components/Form/ShowPassword';
 import useAuth from '../../../hooks/useAuth';
+import FlashMessages from '../../../components/FlashMessages';
 
 const RegisterPageForm = () => {
   const [user, setUser] = useState({});
@@ -12,7 +13,7 @@ const RegisterPageForm = () => {
   const [inputNameLabelFor, setInputNameLabelFor] = useState('firstName');
   const [showPassword, setShowPassword] = useState(false);
   const firstNameRef = useRef();
-  const { loading, register, errorMsg } = useAuth();
+  const { loading, register } = useAuth();
 
   const handleChange = ({ target }) => {
     if (target.name === 'firstName') setInputNameLabelFor('secondName');
@@ -125,8 +126,8 @@ const RegisterPageForm = () => {
           placeholder="Confirme sua senha..."
           handleChange={handleChange}
         />
-        {errorMsg && <p>{errorMsg}</p>}
         <ShowPassword setShowPassword={setShowPassword} />
+        <FlashMessages />
         {loading && <Button loading={loading}>Cadastrando...</Button>}
         {!loading && <Button loading={loading}>Cadastrar</Button>}
       </FormAuth>

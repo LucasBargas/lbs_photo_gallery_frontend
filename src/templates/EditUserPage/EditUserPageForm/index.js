@@ -4,12 +4,14 @@ import EditUserPageFormPreview from './EditUserPageFormPreview';
 import Button from '../../../components/Form/Button';
 import api from '../../../utils/api';
 import ShowPassword from '../../../components/Form/ShowPassword';
+import FlashMessages from '../../../components/FlashMessages';
+import useFlashMessages from '../../../hooks/useFlashMessages';
 
 const EditUserPageForm = ({ datas }) => {
   const [user, setUser] = useState(datas || {});
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const { setFlashMessage } = useFlashMessages();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -18,34 +20,58 @@ const EditUserPageForm = ({ datas }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
+    let msgText = 'Conta atualizada com sucesso!';
+    let msgType = 'success';
 
+    const formData = new FormData();
     Object.keys(user).forEach((key) => {
       formData.append(key, user[key]);
     });
 
-    setLoading(true);
-    await api
-      .patch('users/edit', formData, {
-        headers: {
-          Authorization:
-            typeof window !== 'undefined' &&
-            `Bearer ${JSON.parse(
-              localStorage.getItem('galleryPhotoApiToken'),
-            )}`,
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then((response) => {
-        setLoading(false);
-        setError(false);
-        return response.data;
-      })
-      .catch((error) => {
-        setLoading(false);
-        setError(error.response.data.message);
-        return error.response.data;
-      });
+    try {
+      setLoading(true);
+      await api
+        .patch('/users/edit', formData, {
+          headers: {
+            Authorization:
+              typeof window !== 'undefined' &&
+              `Bearer ${JSON.parse(
+                localStorage.getItem('galleryPhotoApiToken'),
+              )}`,
+            'Content-Type': 'multipart/form-data',
+          },
+        })
+        .then((response) => response.data);
+      return;
+    } catch (error) {
+      msgText = error.response.data.message;
+      msgType = 'error';
+      return;
+    } finally {
+      setFlashMessage(msgText, msgType);
+      setLoading(false);
+    }
+
+    // setLoading(true);
+    // await api
+    //   .patch('users/edit', formData, {
+    //     headers: {
+    //       Authorization:
+    //         typeof window !== 'undefined' &&
+    //         `Bearer ${JSON.parse(
+    //           localStorage.getItem('galleryPhotoApiToken'),
+    //         )}`,
+    //       'Content-Type': 'multipart/form-data',
+    //     },
+    //   })
+    //   .then((response) => {
+    //     setLoading(false);
+    //     return response.data;
+    //   })
+    //   .catch((error) => {
+    //     setLoading(false);
+    //     return error.response.data;
+    //   });
   };
 
   return (
@@ -132,8 +158,8 @@ const EditUserPageForm = ({ datas }) => {
               onChange={handleChange}
             />
           </S.EditUserPageFormField>
-          {message && <p>{message}</p>}
           <ShowPassword setShowPassword={setShowPassword} />
+          <FlashMessages />
           {loading && <Button loading={loading}>Salvando...</Button>}
           {!loading && <Button loading={loading}>Salvar</Button>}
         </S.EditUserPageFormArea>

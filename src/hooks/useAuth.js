@@ -10,7 +10,6 @@ const useAuth = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { setFlashMessage } = useFlashMessages();
-  const [errorMsg, setErrorMsg] = useState(null);
 
   useEffect(() => {
     const token = localStorage.getItem('galleryPhotoApiToken');
@@ -21,6 +20,9 @@ const useAuth = () => {
   }, [setAuthenticated]);
 
   const register = async (user) => {
+    let msgText = 'Cadastro realizado com sucesso!';
+    let msgType = 'success';
+
     try {
       setLoading(true);
       const data = await api
@@ -30,14 +32,19 @@ const useAuth = () => {
       await authUser(setAuthenticated, data.token, router);
       return;
     } catch (error) {
-      setErrorMsg(error.response.data.message);
+      msgText = error.response.data.message;
+      msgType = 'error';
       return;
     } finally {
+      setFlashMessage(msgText, msgType);
       setLoading(false);
     }
   };
 
   const login = async (user) => {
+    let msgText = 'Conta acessada com sucesso!';
+    let msgType = 'success';
+
     try {
       setLoading(true);
       const data = await api
@@ -47,9 +54,11 @@ const useAuth = () => {
       await authUser(setAuthenticated, data.token, router);
       return;
     } catch (error) {
-      setErrorMsg(error.response.data.message);
+      msgText = error.response.data.message;
+      msgType = 'error';
       return;
     } finally {
+      setFlashMessage(msgText, msgType);
       setLoading(false);
     }
   };
@@ -104,7 +113,6 @@ const useAuth = () => {
     login,
     logout,
     deleteAccount,
-    errorMsg,
   };
 };
 
