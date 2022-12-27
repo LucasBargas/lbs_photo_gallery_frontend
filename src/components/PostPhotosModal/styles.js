@@ -138,12 +138,18 @@ export const PostPhotosModalForm = styled.div`
     ul {
       display: flex;
       flex-wrap: wrap;
-      gap: .325rem .75rem;
+      column-gap: .75rem;
       padding-bottom: 1rem;
 
       label {
+        display: block;
         cursor: pointer;
         font-size: .9325rem;
+        padding: .25rem 0;
+
+        @media (max-width: 414px) {
+          padding: .5rem 0;
+        }
 
         input {
           cursor: pointer;
