@@ -14,6 +14,8 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
   const inputFileRef = useRef();
 
   const handleFileChange = async ({ target }) => {
+    if (!authUser) return;
+
     setPreviewPhoto(target.files[0]);
     user.userPhoto = target.files[0];
 
@@ -44,7 +46,7 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
 
   return (
     <S.ProfileDatasContainer authUser={authUser}>
-      <figure onClick={() => inputFileRef.current.click()}>
+      <figure onClick={() => authUser && inputFileRef.current.click()}>
         {previewPhoto && user.userPhoto && (
           <Image
             src={URL.createObjectURL(previewPhoto)}
@@ -52,6 +54,7 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
             width={150}
             height={150}
             priority
+            title={authUser && 'Alterar foto do perfil'}
           />
         )}
 
@@ -62,6 +65,7 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
             width={150}
             height={150}
             priority
+            title={authUser && 'Alterar foto do perfil'}
           />
         )}
 
@@ -72,6 +76,7 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
             width={150}
             height={150}
             priority
+            title={authUser && 'Alterar foto do perfil'}
           />
         )}
 
@@ -82,15 +87,18 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
             width={150}
             height={150}
             priority
+            title={authUser && 'Alterar foto do perfil'}
           />
         )}
-        <input
-          ref={inputFileRef}
-          type="file"
-          name="userPhoto"
-          accept="image/*"
-          onChange={handleFileChange}
-        />
+        {authUser && (
+          <input
+            ref={inputFileRef}
+            type="file"
+            name="userPhoto"
+            accept="image/*"
+            onChange={handleFileChange}
+          />
+        )}
       </figure>
 
       <S.ProfileDatasInfos>
