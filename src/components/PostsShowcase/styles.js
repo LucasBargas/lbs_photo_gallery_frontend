@@ -34,7 +34,7 @@ export const NoPostsContainer = styled.div`
 export const PostsShowcaseContainer = styled.div`
   h2 {
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
