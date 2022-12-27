@@ -8,7 +8,7 @@ import { MdOutlineEdit } from 'react-icons/md';
 
 const apiUrlUsersPhotos = process.env.NEXT_PUBLIC_API_USERS_URL;
 
-const ProfileDatas = ({ authUser, user, photos }) => {
+const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
   return (
     <S.ProfileDatasContainer>
       <figure>
@@ -45,7 +45,10 @@ const ProfileDatas = ({ authUser, user, photos }) => {
                 </Link>
               </li>
               <li>
-                <S.ProfileDatasAddPhotoBtn title="Adicionar foto">
+                <S.ProfileDatasAddPhotoBtn
+                  title="Adicionar foto"
+                  onClick={() => setPostPhotosModalOpened(true)}
+                >
                   <FiPlus />
                 </S.ProfileDatasAddPhotoBtn>
               </li>

@@ -5,7 +5,7 @@ import useReqApi from '../../hooks/useReqApi';
 import ProfilePage from '../../templates/ProfilePage';
 
 const MyProfile = () => {
-  const { datas } = useReqApi('/users/auth-user', true);
+  const { datas, setDatas } = useReqApi('/users/auth-user', true);
   const router = useRouter();
 
   return (
@@ -14,7 +14,7 @@ const MyProfile = () => {
         title="Perfil"
         url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.pathname}`}
       />
-      {datas && <ProfilePage authUser user={datas} />}
+      {datas && <ProfilePage authUser user={datas} setUser={setDatas} />}
     </>
   );
 };
