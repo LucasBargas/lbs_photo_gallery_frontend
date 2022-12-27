@@ -1,17 +1,15 @@
 import styled, { css } from 'styled-components';
 
 export const HeaderContainer = styled.header`
-  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  height: 4.25rem;
 
   ${({ shadow }) =>
     shadow &&
     css`
     box-shadow: rgb(0, 0, 0, .1) 0px 2px 15px;
   `}
-
-  @media (max-width: 992px) {
-    padding: .5rem 0;
-  }
 `;
 
 export const HeaderArea = styled.div`
