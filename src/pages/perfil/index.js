@@ -14,7 +14,7 @@ const MyProfile = () => {
         title="Perfil"
         url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.pathname}`}
       />
-      {datas && <ProfilePage authUser user={datas} setUser={setDatas} />}
+      {datas && <ProfilePage authUser={true} home={false} user={datas} />}
     </>
   );
 };

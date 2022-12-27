@@ -1,14 +1,14 @@
-import Image from 'next/image';
 import React from 'react';
 import * as S from './styles';
 import { AiOutlineCamera } from 'react-icons/ai';
-
-const apiUrlPhotos = process.env.NEXT_PUBLIC_API_PHOTOS_URL;
+import Card from '../Card';
 
 const PostsShowcase = ({
   title,
   authUser,
+  home,
   photos,
+  setPhotos,
   setPostPhotosModalOpened,
 }) => {
   if (!authUser && photos.length === 0) {
@@ -23,12 +23,18 @@ const PostsShowcase = ({
   if (authUser && photos.length === 0) {
     return (
       <S.NoPostsContainer>
-        <button onClick={() => setPostPhotosModalOpened(true)}>
+        <button
+          onClick={() => setPostPhotosModalOpened(true)}
+          title="Adicionar foto"
+        >
           <AiOutlineCamera />
         </button>
         <h2>Compartilhe suas fotos</h2>
         <p>Assim que você compartilha-las, elas aparecerão no seu perfil.</p>
-        <span onClick={() => setPostPhotosModalOpened(true)}>
+        <span
+          onClick={() => setPostPhotosModalOpened(true)}
+          title="Adicionar foto"
+        >
           Compartilhe sua primeira foto
         </span>
       </S.NoPostsContainer>
@@ -41,15 +47,14 @@ const PostsShowcase = ({
       <S.PostsShowcaseWrapper>
         {photos.length > 0 &&
           photos.map((photo) => (
-            <figure key={photo.singlePhoto}>
-              <Image
-                src={`${apiUrlPhotos}/${photo.singlePhoto}`}
-                alt="Algo"
-                height={400}
-                width={400}
-                priority
-              />
-            </figure>
+            <Card
+              key={photo.singlePhoto}
+              photo={photo}
+              authUser={authUser}
+              home={home}
+              photos={photos}
+              setPhotos={setPhotos}
+            />
           ))}
       </S.PostsShowcaseWrapper>
     </S.PostsShowcaseContainer>

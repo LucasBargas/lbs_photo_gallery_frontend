@@ -44,6 +44,10 @@ const Globals = createGlobalStyle`
       font-weight: 700;
     }
 
+    img {
+      display: block;
+    }
+
     a {
       display: block;
       text-decoration: none;

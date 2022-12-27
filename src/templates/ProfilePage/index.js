@@ -6,7 +6,7 @@ import PostsShowcase from '../../components/PostsShowcase';
 import PostPhotosModal from '../../components/PostPhotosModal';
 import api from '../../utils/api';
 
-const ProfilePage = ({ authUser, user }) => {
+const ProfilePage = ({ authUser, home, user }) => {
   const [datas, setDatas] = useState([]);
   const [postPhotosModalOpened, setPostPhotosModalOpened] = useState(false);
 
@@ -43,11 +43,13 @@ const ProfilePage = ({ authUser, user }) => {
         <PostsShowcase
           title="Publicações"
           authUser={authUser}
+          home={home}
           photos={datas}
+          setPhotos={setDatas}
           setPostPhotosModalOpened={setPostPhotosModalOpened}
         />
       </AppContainer>
-      {postPhotosModalOpened && (
+      {authUser && postPhotosModalOpened && (
         <PostPhotosModal
           postPhotosModalOpened={postPhotosModalOpened}
           setPostPhotosModalOpened={setPostPhotosModalOpened}

@@ -51,7 +51,7 @@ const ProfileByUserName = ({ user }) => {
         url={`${process.env.NEXT_PUBLIC_DOMAIN_URL}${router.asPath}`}
       />
 
-      <ProfilePage authUser={false} user={user} />
+      <ProfilePage authUser={false} home={false} user={user} />
     </>
   );
 };

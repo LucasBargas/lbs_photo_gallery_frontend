@@ -53,14 +53,12 @@ const PostPhotosModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const photo = {
-      singlePhoto: previewPhoto,
-      categories: [...checkedList],
-    };
-
     const formData = new FormData();
-    Object.keys(photo).forEach((key) => {
-      formData.append(key, photo[key]);
+
+    formData.append('singlePhoto', previewPhoto);
+
+    checkedList.forEach((checked) => {
+      formData.append('categories', checked);
     });
 
     postPhoto(formData);
@@ -83,7 +81,9 @@ const PostPhotosModal = ({
         .then((response) => {
           setLoading(false);
           setPostPhotosModalOpened(false);
-          setPhotos([...photos, response.data.newPhoto]);
+          setPhotos([response.data, ...photos]);
+          console.log(response.data);
+          router.replace(router.asPath);
           return response.data;
         });
       return;
