@@ -13,7 +13,7 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
   const [previewPhoto, setPreviewPhoto] = useState('');
   const inputFileRef = useRef();
 
-  const handleFileChange = async ({ target }) => {
+  const handleFileChange = ({ target }) => {
     if (!authUser) return;
 
     setPreviewPhoto(target.files[0]);
@@ -24,6 +24,10 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
       formData.append(key, user[key]);
     });
 
+    postPhoto(formData);
+  };
+
+  const postPhoto = async (formData) => {
     try {
       await api
         .patch('/users/edit', formData, {
