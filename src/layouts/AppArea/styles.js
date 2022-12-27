@@ -6,6 +6,7 @@ export const AppAreaContainer = styled.section`
   flex-direction: column;
 
   main {
+    padding-top: 4.5rem;
     flex: 1;
   }
 `;

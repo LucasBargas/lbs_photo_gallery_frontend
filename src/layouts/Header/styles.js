@@ -1,9 +1,15 @@
 import styled, { css } from 'styled-components';
 
 export const HeaderContainer = styled.header`
+  background: ${({ theme }) => theme.colors.lightColor};
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   height: 4.25rem;
+  z-index: 3000;
 
   ${({ shadow }) =>
     shadow &&

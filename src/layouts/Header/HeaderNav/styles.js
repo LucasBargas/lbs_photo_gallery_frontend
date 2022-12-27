@@ -8,7 +8,6 @@ export const HeaderNavContainer = styled.nav`
     background: ${({ theme }) => theme.colors.primaryColor};
     width: 50%;
     height: 100vh;
-    z-index: 3000;
     transform: translate3d(100%, 0, 0);
     transition: .5s;
 
