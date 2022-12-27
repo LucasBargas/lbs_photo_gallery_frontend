@@ -3,6 +3,9 @@ import styled from 'styled-components';
 export const ProfileDatasContainer = styled.div`
   display: flex;
   gap: 4rem;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
 
   @media (max-width: 576px) {
     gap: 2rem;
