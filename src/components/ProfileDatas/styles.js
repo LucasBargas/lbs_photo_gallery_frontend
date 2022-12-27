@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const ProfileDatasContainer = styled.div`
   display: flex;
@@ -21,6 +21,12 @@ export const ProfileDatasContainer = styled.div`
       object-fit: cover;
       border-radius: 100%;
 
+      ${({ authUser }) =>
+        authUser &&
+        css`
+          cursor: pointer;
+        `}
+
       @media (max-width: 480px) {
         width: 100px;
         height: 100px;
@@ -30,6 +36,10 @@ export const ProfileDatasContainer = styled.div`
         width: 80px;
         height: 80px;
       }
+    }
+
+    input {
+      display: none;
     }
   }
 `;
