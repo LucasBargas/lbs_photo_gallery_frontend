@@ -5,7 +5,7 @@ export const ProfileDatasContainer = styled.div`
   gap: 4rem;
   border-bottom: 1px solid #ccc;
   padding-bottom: 2rem;
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 
   @media (max-width: 576px) {
     gap: 2rem;
