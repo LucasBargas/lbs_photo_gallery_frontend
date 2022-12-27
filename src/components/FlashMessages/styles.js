@@ -8,7 +8,7 @@ export const FlashMessagesContainer = styled.div`
   font-weight: 700;
 
   &#success {
-    background: ${({ theme }) => theme.colors.primaryColor};
+    background: ${({ theme }) => theme.colors.greenColor};
     color: ${({ theme }) => theme.colors.lightColor};
   }
 
