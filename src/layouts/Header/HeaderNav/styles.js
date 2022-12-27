@@ -69,12 +69,12 @@ export const HeaderNavWrapper = styled.div`
         &::after {
           content: '';
           height: 6px;
-          width: calc(100% + .625rem);
+          width: calc(100% + .75rem);
           background: #006400;
           position: absolute;
           transform: translateX(-50%);
           left: 50%;
-          bottom: 10px;
+          bottom: 7px;
           border-radius: 6px;
           opacity: .6;
           z-index: 2;
