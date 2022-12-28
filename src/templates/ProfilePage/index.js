@@ -9,10 +9,16 @@ import api from '../../utils/api';
 const ProfilePage = ({ authUser, home, user }) => {
   const [datas, setDatas] = useState([]);
   const [postPhotosModalOpened, setPostPhotosModalOpened] = useState(false);
+  const [slider, setSlider] = useState(false);
+  const [sliderActive, setSliderActive] = useState(1);
 
   useEffect(() => {
     document.body.style.overflow = postPhotosModalOpened ? 'hidden' : 'auto';
   }, [postPhotosModalOpened]);
+
+  useEffect(() => {
+    document.body.style.overflow = slider ? 'hidden' : 'auto';
+  }, [slider]);
 
   useEffect(() => {
     const reqDatas = async () => {
@@ -47,6 +53,10 @@ const ProfilePage = ({ authUser, home, user }) => {
           photos={datas}
           setPhotos={setDatas}
           setPostPhotosModalOpened={setPostPhotosModalOpened}
+          slider={slider}
+          setSlider={setSlider}
+          sliderActive={sliderActive}
+          setSliderActive={setSliderActive}
         />
       </AppContainer>
       {authUser && postPhotosModalOpened && (

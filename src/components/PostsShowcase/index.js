@@ -2,6 +2,7 @@ import React from 'react';
 import * as S from './styles';
 import { AiOutlineCamera } from 'react-icons/ai';
 import Card from '../Card';
+import Slider from '../Slider';
 
 const PostsShowcase = ({
   title,
@@ -10,6 +11,10 @@ const PostsShowcase = ({
   photos,
   setPhotos,
   setPostPhotosModalOpened,
+  slider,
+  setSlider,
+  sliderActive,
+  setSliderActive,
 }) => {
   if (!authUser && photos.length === 0) {
     return (
@@ -46,17 +51,30 @@ const PostsShowcase = ({
       {title && <h2>{title}</h2>}
       <S.PostsShowcaseWrapper>
         {photos.length > 0 &&
-          photos.map((photo) => (
+          photos.map((photo, index) => (
             <Card
               key={photo.singlePhoto}
+              index={index}
               photo={photo}
               authUser={authUser}
               home={home}
               photos={photos}
               setPhotos={setPhotos}
+              setSlider={setSlider}
+              sliderActive={sliderActive}
+              setSliderActive={setSliderActive}
             />
           ))}
       </S.PostsShowcaseWrapper>
+      {slider && (
+        <Slider
+          authUser={authUser}
+          photos={photos}
+          setPhotos={setPhotos}
+          setSlider={setSlider}
+          sliderActive={sliderActive}
+        />
+      )}
     </S.PostsShowcaseContainer>
   );
 };

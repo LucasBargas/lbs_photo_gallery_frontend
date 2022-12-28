@@ -101,17 +101,14 @@ export const CardPostDetails = styled.div`
     }
   }
 
-  figure {
+  a {
     padding-bottom: .5rem;
     display: flex;
     align-items: center;
+    font-size: .875rem;
 
     legend {
       margin-left: .5rem;
-
-      a {
-        font-size: .875rem;
-      }
     }
 
     img {
