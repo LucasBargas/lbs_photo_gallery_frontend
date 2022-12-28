@@ -81,16 +81,6 @@ const EditUserPageForm = ({ datas }) => {
             />
           </S.EditUserPageFormField>
           <S.EditUserPageFormField>
-            <label htmlFor="userName">Nome de usuário</label>
-            <input
-              type="text"
-              name="userName"
-              id="userName"
-              value={user.userName || ''}
-              onChange={handleChange}
-            />
-          </S.EditUserPageFormField>
-          <S.EditUserPageFormField>
             <label htmlFor="bio">Biografia</label>
             <textarea
               type="text"
