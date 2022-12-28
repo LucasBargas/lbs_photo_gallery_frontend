@@ -9,7 +9,7 @@ const categories = [
   'Gatos',
   'Pandas',
   'Doces',
-  'Salgados',
+  'Frutas',
   'Universo',
 ];
 
