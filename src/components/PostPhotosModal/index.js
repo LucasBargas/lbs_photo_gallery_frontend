@@ -13,8 +13,8 @@ const categories = [
   'Peixes',
   'Gatos',
   'Pandas',
+  'Doces',
   'Frutas',
-  'Salgados',
   'Universo',
 ];
 

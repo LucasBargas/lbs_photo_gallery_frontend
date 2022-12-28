@@ -31,6 +31,7 @@ export const HomePageSearchFilter = styled.form`
   ul {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     gap: .625rem;
 
     label, input {
