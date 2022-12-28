@@ -14,8 +14,6 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ photos }) => {
-  console.log(photos);
-
   return (
     <>
       <HeadPerPage
