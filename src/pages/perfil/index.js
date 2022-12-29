@@ -5,7 +5,7 @@ import useReqApi from '../../hooks/useReqApi';
 import ProfilePage from '../../templates/ProfilePage';
 
 const MyProfile = () => {
-  const { datas, setDatas } = useReqApi('/users/auth-user', true);
+  const { datas } = useReqApi('/users/auth-user', true);
   const router = useRouter();
 
   return (
