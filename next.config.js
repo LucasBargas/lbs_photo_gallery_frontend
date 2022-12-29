@@ -5,7 +5,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['localhost'],
+    domains: ['localhost', process.env.NEXT_PUBLIC_CONFIG_IMAGES_DIR],
   },
 };
 
