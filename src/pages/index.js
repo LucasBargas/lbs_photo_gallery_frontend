@@ -4,7 +4,7 @@ import HomePage from '../templates/HomePage';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const res = await fetch(`${apiUrl}/photos`);
   const photos = await res.json();
 
