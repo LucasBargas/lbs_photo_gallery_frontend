@@ -54,7 +54,6 @@ const Card = ({
             alt="Foto"
             height={400}
             width={400}
-            priority
           />
         </S.CardContentPhoto>
 

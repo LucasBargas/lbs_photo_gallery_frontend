@@ -79,7 +79,6 @@ const Slider = ({ authUser, photos, setPhotos, setSlider, sliderActive }) => {
                 alt="Foto"
                 height={360}
                 width={640}
-                priority
               />
             </figure>
             <S.SliderSingleContentDetails>
