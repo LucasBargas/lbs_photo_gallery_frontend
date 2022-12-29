@@ -125,7 +125,7 @@ const PostPhotosModal = ({
             )}
             {!previewPhoto && (
               <button onClick={() => inputFileRef.current.click()}>
-                Selecione do seu dispotivo
+                Selecione do seu dispositivo
               </button>
             )}
             {previewPhoto && (
