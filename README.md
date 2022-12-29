@@ -34,7 +34,12 @@ O projeto **#Galeria de Fotos LBS** foi desenvolvido por mim, Lucas Bargas, com 
 #### Página de Perfil público dos Usuários
 <img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/VpXG1gx/photo-gallery-public-profile.png">
 
+#### Página de Perfil do Usuário logado
+<img alt="Página de Perfil do Usuário logado" src="https://i.ibb.co/7gQWkjh/photo-gallery-private-profile.png">
+<img alt="Página de Perfil do Usuário logado com modal" src="https://i.ibb.co/BLZnspK/photo-gallery-private-profile-modal.png">
 
+#### Página de Edição de Usuário
+<img alt="Página de Edição de Usuário" src="https://i.ibb.co/WGQx6Fh/photo-gallery-edit.png">
 
 Gostaria de ver o repositório do Backend deste app?
 [Clique aqui](https://github.com/LucasBargas/lbs_photo_gallery_backend)
