@@ -70,6 +70,7 @@ export const SliderSingleContent = styled.div`
       max-height: 400px;
       width: 100%;
       height: 100%;
+      object-fit: cover;
     }
   }
 `;
