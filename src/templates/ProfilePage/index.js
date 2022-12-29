@@ -29,8 +29,7 @@ const ProfilePage = ({ authUser, home, user }) => {
           return response.data;
         })
         .catch((err) => {
-          console.log(err);
-          return;
+          return err;
         });
     };
 
