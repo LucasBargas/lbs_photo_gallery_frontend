@@ -14,6 +14,8 @@ const HomePage = ({ photos, home }) => {
     document.body.style.overflow = slider ? 'hidden' : 'auto';
   }, [slider]);
 
+  console.log(photos);
+
   const photosFiltered =
     (photos.length > 0 && searchValue.length > 0) || checkedList.length > 0
       ? photos.filter((photo) => {
