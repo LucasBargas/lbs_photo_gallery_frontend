@@ -31,8 +31,8 @@ O projeto **#Galeria de Fotos LBS** foi desenvolvido por mim, Lucas Bargas, com 
 #### Página de Cadastro de Usuário
 <img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/r77fVJv/photo-gallery-register.png">
 
-#### Página de Perfil público dos Usuários
-<img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/VpXG1gx/photo-gallery-public-profile.png>
+#### Página de Perfil úblico dos Usuários
+<img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/VpXG1gx/photo-gallery-public-profile.png">
 
 
 
