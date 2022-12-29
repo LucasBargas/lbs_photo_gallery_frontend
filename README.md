@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Projeto #Galeria de Fotos LBS
+O projeto **#Galeria de Fotos LBS** foi desenvolvido por mim, Lucas Bargas, com base em um layout que encontrei na web. Este projeto tem como objetivo simular um portal de notícias, porém com um visual mais simples.
 
-## Getting Started
+### Link para visualizar o projeto
+<https://galeriadefotos-lbs.vercel.app/>
 
-First, run the development server:
+### Principais recursos do App
+* Registo, login e logout de usuário;
+* Edição de usuário, somente autenticado;
+* Registro e exclusão de fotos, somente autenticado;
+* A exclusão só pode ser feita por quem postou a foto.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Tecnologias utilizadas
+#### Front end
+* Nextjs;
+* Styled components;
+* Hooks e Context API;
+* Axios para o consumo da API Rest desenvolvida no Backend;
+* Renderização de dados com SSR e SSG;
+* React Icons.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Prints do App (Versão Desktop e Mobile)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### Página incial
+<img alt="Página inicial" src="https://i.ibb.co/KN3345g/photo-gallery-home.png">
+<img alt="Página inicial com modal" src="https://i.ibb.co/XV0nrWV/photo-gallery-home-modal.png">
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+#### Página de Login
+<img alt="Página de Login" src="https://i.ibb.co/rQfsPNS/photo-gallery-login.png">
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+#### Página de Cadastro de Usuário
+<img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/r77fVJv/photo-gallery-register.png">
 
-## Learn More
+#### Página de Perfil público dos Usuários
+<img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/VpXG1gx/photo-gallery-public-profile.png>
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Gostaria de ver o repositório do Backend deste app?
+[Clique aqui](https://github.com/LucasBargas/lbs_photo_gallery_backend)
