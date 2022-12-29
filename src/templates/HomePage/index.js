@@ -15,7 +15,7 @@ const HomePage = ({ photos, home }) => {
   }, [slider]);
 
   const photosFiltered =
-    searchValue.length > 0 || checkedList.length > 0
+    (photos.length > 0 && searchValue.length > 0) || checkedList.length > 0
       ? photos.filter((photo) => {
           return checkedList.length > 0
             ? photo.categories.some((el) =>
