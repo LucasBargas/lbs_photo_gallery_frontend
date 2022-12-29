@@ -50,9 +50,7 @@ const Slider = ({ authUser, photos, setPhotos, setSlider, sliderActive }) => {
   };
 
   const handleOutsideClick = ({ target, currentTarget }) => {
-    if (target === currentTarget) {
-      setSlider(false);
-    }
+    if (target === currentTarget) setSlider(false);
   };
 
   return (
