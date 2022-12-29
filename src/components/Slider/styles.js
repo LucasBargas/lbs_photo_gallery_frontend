@@ -68,6 +68,8 @@ export const SliderSingleContent = styled.div`
   > figure {
     img {
       max-height: 400px;
+      width: 100%;
+      height: 100%;
     }
   }
 `;
