@@ -3,8 +3,10 @@ import React from 'react';
 import * as S from './styles';
 import api from '../../utils/api';
 import Link from 'next/link';
+import useReqApi from '../../hooks/useReqApi';
 
 const apiUrlPhotos = process.env.NEXT_PUBLIC_API_PHOTOS_URL;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Card = ({
   index,
@@ -16,6 +18,8 @@ const Card = ({
   setSlider,
   setSliderActive,
 }) => {
+  const { datas } = useReqApi(`${apiUrl}/users/auth-user`, true);
+
   const handleDeletePhoto = async (id) => {
     if (!authUser) return;
 
@@ -116,7 +120,7 @@ const Card = ({
               </S.CardPostDetails>
             </S.CardContentCoveringArea>
           )}
-          {home && (
+          {home && datas && (
             <S.CardContentCoveringArea>
               <S.CardActions>
                 <S.CardButton
@@ -130,7 +134,15 @@ const Card = ({
                 </S.CardButton>
               </S.CardActions>
               <S.CardPostDetails>
-                <Link href={`/perfil/${photo.userName}`}>{photo.userName}</Link>
+                <Link
+                  href={
+                    photo.userName !== datas.userName
+                      ? `/perfil/${photo.userName}`
+                      : `/perfil`
+                  }
+                >
+                  {photo.userName}
+                </Link>
 
                 <ul>
                   {Array.isArray(photo.categories) ? (
