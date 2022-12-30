@@ -74,39 +74,11 @@ const useAuth = () => {
     }
   };
 
-  const deleteAccount = async () => {
-    setLoading(true);
-
-    await api
-      .delete('/users/delete', {
-        headers: {
-          Authorization:
-            typeof window !== 'undefined' &&
-            `Bearer ${JSON.parse(
-              localStorage.getItem('galleryPhotoApiToken'),
-            )}`,
-        },
-      })
-      .then((response) => {
-        setAuthenticated(false);
-        localStorage.removeItem('galleryPhotoApiToken');
-        api.defaults.headers.Authorization = undefined;
-        setLoading(false);
-        router.push('/entrar');
-        return response.data;
-      })
-      .catch((err) => {
-        console.log(err);
-        return;
-      });
-  };
-
   return {
     loading,
     register,
     login,
     logout,
-    deleteAccount,
   };
 };
 
