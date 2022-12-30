@@ -4,6 +4,7 @@ import * as S from './styles';
 import api from '../../utils/api';
 import Link from 'next/link';
 import useReqApi from '../../hooks/useReqApi';
+import useAuthContext from '../../hooks/useAuthContext';
 
 const apiUrlPhotos = process.env.NEXT_PUBLIC_API_PHOTOS_URL;
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -19,6 +20,7 @@ const Card = ({
   setSliderActive,
 }) => {
   const { datas } = useReqApi(`${apiUrl}/users/auth-user`, true);
+  const { authenticated } = useAuthContext();
 
   const handleDeletePhoto = async (id) => {
     if (!authUser) return;
@@ -120,7 +122,7 @@ const Card = ({
               </S.CardPostDetails>
             </S.CardContentCoveringArea>
           )}
-          {home && datas && (
+          {home && (
             <S.CardContentCoveringArea>
               <S.CardActions>
                 <S.CardButton
@@ -134,15 +136,25 @@ const Card = ({
                 </S.CardButton>
               </S.CardActions>
               <S.CardPostDetails>
-                <Link
-                  href={
-                    photo.userName !== datas.userName
-                      ? `/perfil/${photo.userName}`
-                      : `/perfil`
-                  }
-                >
-                  {photo.userName}
-                </Link>
+                {authenticated &&
+                  datas &&
+                  photo.userName === datas.userName && (
+                    <Link href="/perfil">{photo.userName}</Link>
+                  )}
+
+                {authenticated &&
+                  datas &&
+                  photo.userName !== datas.userName && (
+                    <Link href={`/perfil/${photo.userName}`}>
+                      {photo.userName}
+                    </Link>
+                  )}
+
+                {!authenticated && (
+                  <Link href={`/perfil/${photo.userName}`}>
+                    {photo.userName}
+                  </Link>
+                )}
 
                 <ul>
                   {Array.isArray(photo.categories) ? (
