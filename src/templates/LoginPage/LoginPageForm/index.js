@@ -66,8 +66,7 @@ const LoginPageForm = () => {
         />
         <ShowPassword setShowPassword={setShowPassword} />
         <FlashMessages />
-        {loading && <Button loading={loading}>Entrando...</Button>}
-        {!loading && <Button loading={loading}>Entrar</Button>}
+        <Button loading={loading}>{loading ? 'Entrando...' : 'Entrar'}</Button>
       </FormAuth>
     </S.LoginPageFormContainer>
   );

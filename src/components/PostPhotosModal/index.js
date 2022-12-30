@@ -141,7 +141,7 @@ const PostPhotosModal = ({
               onChange={handleFileChange}
             />
             {previewPhoto && (
-              <S.PostPhotosModalForm>
+              <S.PostPhotosModalForm loading={loading}>
                 <h4>Selecione as categorias disponíveis para a sua foto</h4>
 
                 <form onSubmit={handleSubmit}>
@@ -160,8 +160,7 @@ const PostPhotosModal = ({
                       </li>
                     ))}
                   </ul>
-                  {loading && <button>Postando...</button>}
-                  {!loading && <button>Postar</button>}
+                  <button>{loading ? 'Postando...' : 'Postar'}</button>
                 </form>
               </S.PostPhotosModalForm>
             )}

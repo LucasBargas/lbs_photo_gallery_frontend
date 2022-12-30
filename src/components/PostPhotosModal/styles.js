@@ -162,7 +162,8 @@ export const PostPhotosModalForm = styled.div`
       background: ${({ theme }) => theme.colors.lightColor};
       color: ${({ theme }) => theme.colors.greenColor};
       border: 2px solid ${({ theme }) => theme.colors.greenColor};
-      max-width: 100px;
+      cursor: ${({ loading }) => (loading ? 'wait' : 'pointer')};
+      max-width: 130px;
       padding: .5rem 1rem;
       margin: 0 auto;
 

@@ -128,8 +128,9 @@ const RegisterPageForm = () => {
         />
         <ShowPassword setShowPassword={setShowPassword} />
         <FlashMessages />
-        {loading && <Button loading={loading}>Cadastrando...</Button>}
-        {!loading && <Button loading={loading}>Cadastrar</Button>}
+        <Button loading={loading}>
+          {loading ? 'Cadastrando...' : 'Cadastrar'}
+        </Button>
       </FormAuth>
     </S.RegisterPageFormContainer>
   );

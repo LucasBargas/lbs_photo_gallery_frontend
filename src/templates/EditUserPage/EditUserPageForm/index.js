@@ -131,8 +131,9 @@ const EditUserPageForm = ({ datas }) => {
           </S.EditUserPageFormField>
           <ShowPassword setShowPassword={setShowPassword} />
           <FlashMessages />
-          {loading && <Button loading={loading}>Salvando...</Button>}
-          {!loading && <Button loading={loading}>Salvar</Button>}
+          <Button loading={loading}>
+            {loading ? 'Salvando...' : 'Salvar'}
+          </Button>
         </S.EditUserPageFormArea>
       </S.EditUserPageFormWrapper>
     </S.EditUserPageFormContainer>
