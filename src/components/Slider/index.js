@@ -8,10 +8,13 @@ import {
 import Image from 'next/image';
 import Link from 'next/link';
 import api from '../../utils/api';
+import useReqApi from '../../hooks/useReqApi';
 
 const apiUrlPhotos = process.env.NEXT_PUBLIC_API_PHOTOS_URL;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 const Slider = ({ authUser, photos, setPhotos, setSlider, sliderActive }) => {
+  const { datas } = useReqApi(`${apiUrl}/users/auth-user`, true);
   const [fullScreen, setFullScreen] = useState(false);
 
   const handleDeletePhoto = async (id) => {
@@ -68,47 +71,56 @@ const Slider = ({ authUser, photos, setPhotos, setSlider, sliderActive }) => {
       </S.SliderActions>
 
       <S.SliderWrapper onClick={handleOutsideClick}>
-        {photos.map((photo) => (
-          <S.SliderSingleContent
-            key={photo.singlePhoto}
-            sliderActive={sliderActive}
-          >
-            <figure>
-              <Image
-                src={`${apiUrlPhotos}/${photo.singlePhoto}`}
-                alt="Foto"
-                height={360}
-                width={640}
-              />
-            </figure>
-            <S.SliderSingleContentDetails>
-              <div>
-                <Link href={`/perfil/${photo.userName}`}>{photo.userName}</Link>
-
-                <ul>
-                  {Array.isArray(photo.categories) ? (
-                    photo.categories.map((category) => (
-                      <li key={category}># {category}</li>
-                    ))
-                  ) : (
-                    <li># {photo.categories}</li>
-                  )}
-                </ul>
-              </div>
-
-              {authUser && (
-                <S.SliderSingleContentActions>
-                  <button
-                    title="Deletar foto"
-                    onClick={() => handleDeletePhoto(photo.photoId)}
+        {datas &&
+          photos.map((photo) => (
+            <S.SliderSingleContent
+              key={photo.singlePhoto}
+              sliderActive={sliderActive}
+            >
+              <figure>
+                <Image
+                  src={`${apiUrlPhotos}/${photo.singlePhoto}`}
+                  alt="Foto"
+                  height={360}
+                  width={640}
+                />
+              </figure>
+              <S.SliderSingleContentDetails>
+                <div>
+                  <Link
+                    href={
+                      photo.userName !== datas.userName
+                        ? `/perfil/${photo.userName}`
+                        : `/perfil`
+                    }
                   >
-                    Apagar
-                  </button>
-                </S.SliderSingleContentActions>
-              )}
-            </S.SliderSingleContentDetails>
-          </S.SliderSingleContent>
-        ))}
+                    {photo.userName}
+                  </Link>
+
+                  <ul>
+                    {Array.isArray(photo.categories) ? (
+                      photo.categories.map((category) => (
+                        <li key={category}># {category}</li>
+                      ))
+                    ) : (
+                      <li># {photo.categories}</li>
+                    )}
+                  </ul>
+                </div>
+
+                {authUser && (
+                  <S.SliderSingleContentActions>
+                    <button
+                      title="Deletar foto"
+                      onClick={() => handleDeletePhoto(photo.photoId)}
+                    >
+                      Apagar
+                    </button>
+                  </S.SliderSingleContentActions>
+                )}
+              </S.SliderSingleContentDetails>
+            </S.SliderSingleContent>
+          ))}
       </S.SliderWrapper>
     </S.SliderContainer>
   );

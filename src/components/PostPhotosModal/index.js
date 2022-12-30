@@ -4,7 +4,6 @@ import { IoClose } from 'react-icons/io5';
 import { IoMdPhotos } from 'react-icons/io';
 import Image from 'next/image';
 import api from '../../utils/api';
-import { useRouter } from 'next/router';
 
 const categories = [
   'Natureza',
@@ -28,7 +27,6 @@ const PostPhotosModal = ({
   const [previewPhoto, setPreviewPhoto] = useState('');
   const [loading, setLoading] = useState(false);
   const inputFileRef = useRef();
-  const router = useRouter();
 
   const handleFileChange = ({ target }) => {
     setPreviewPhoto(target.files[0]);
@@ -82,8 +80,6 @@ const PostPhotosModal = ({
           setLoading(false);
           setPostPhotosModalOpened(false);
           setPhotos([response.data, ...photos]);
-          console.log(response.data);
-          router.replace(router.asPath);
           return response.data;
         });
       return;
