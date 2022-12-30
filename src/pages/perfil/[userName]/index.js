@@ -23,7 +23,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getServerSideProps = async (context) => {
+export const getStaticProps = async (context) => {
   const { userName } = context.params;
   const res = await fetch(`${apiUrl}/users/${userName}`);
   const user = await res.json();
