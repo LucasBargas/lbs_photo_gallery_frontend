@@ -5,7 +5,7 @@ import * as S from './styles';
 const FlashMessages = () => {
   const [visibiliy, setVisibility] = useState(false);
   const [msg, setMsg] = useState('');
-  const [type, setType] = useState('oi');
+  const [type, setType] = useState('');
 
   useEffect(() => {
     bus.addListener('flash', ({ message, type }) => {

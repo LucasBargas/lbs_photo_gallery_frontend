@@ -4,6 +4,8 @@ import { IoClose } from 'react-icons/io5';
 import { IoMdPhotos } from 'react-icons/io';
 import Image from 'next/image';
 import api from '../../utils/api';
+import useFlashMessages from '../../hooks/useFlashMessages';
+import FlashMessages from '../FlashMessages';
 
 const categories = [
   'Natureza',
@@ -27,6 +29,7 @@ const PostPhotosModal = ({
   const [previewPhoto, setPreviewPhoto] = useState('');
   const [loading, setLoading] = useState(false);
   const inputFileRef = useRef();
+  const { setFlashMessage } = useFlashMessages();
 
   const handleFileChange = ({ target }) => {
     setPreviewPhoto(target.files[0]);
@@ -63,6 +66,9 @@ const PostPhotosModal = ({
   };
 
   const postPhoto = async (formData) => {
+    let msgText = 'Foto postada com sucesso!';
+    let msgType = 'success';
+
     try {
       setLoading(true);
       await api
@@ -78,15 +84,19 @@ const PostPhotosModal = ({
         })
         .then((response) => {
           setLoading(false);
-          setPostPhotosModalOpened(false);
+          setTimeout(() => {
+            setPostPhotosModalOpened(false);
+          }, 1000);
           setPhotos([response.data, ...photos]);
           return response.data;
         });
       return;
     } catch (error) {
-      console.log(error);
+      msgText = error.response.data.message;
+      msgType = 'error';
       return;
     } finally {
+      setFlashMessage(msgText, msgType);
       setLoading(false);
     }
   };
@@ -156,6 +166,7 @@ const PostPhotosModal = ({
                       </li>
                     ))}
                   </ul>
+                  <FlashMessages />
                   <button>{loading ? 'Postando...' : 'Postar'}</button>
                 </form>
               </S.PostPhotosModalForm>

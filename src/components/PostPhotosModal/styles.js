@@ -1,4 +1,5 @@
 import styled, { css, keyframes } from 'styled-components';
+import { FlashMessagesContainer } from '../FlashMessages/styles';
 
 const modalAnimation = keyframes`
   from {
@@ -156,6 +157,10 @@ export const PostPhotosModalForm = styled.div`
           margin-right: .325rem;
         }
       }
+    }
+
+    ${FlashMessagesContainer} {
+      margin-bottom: .75rem;
     }
 
     button {

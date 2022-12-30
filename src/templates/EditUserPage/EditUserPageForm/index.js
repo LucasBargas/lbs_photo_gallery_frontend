@@ -6,14 +6,12 @@ import api from '../../../utils/api';
 import ShowPassword from '../../../components/Form/ShowPassword';
 import FlashMessages from '../../../components/FlashMessages';
 import useFlashMessages from '../../../hooks/useFlashMessages';
-import useAuth from '../../../hooks/useAuth';
 
 const EditUserPageForm = ({ datas }) => {
   const [user, setUser] = useState(datas || {});
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const { setFlashMessage } = useFlashMessages();
-  const { deleteAccount } = useAuth();
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
