@@ -38,10 +38,7 @@ const PostsShowcase = ({
             <AiOutlineCamera />
           </button>
           <h2>Compartilhe suas fotos</h2>
-          <p>
-            Assim que você compartilha-las, elas aparecerão no seu perfil e
-            estaram disponíveis para todos visualizarem.
-          </p>
+          <p>Assim que você compartilha-las, elas aparecerão no seu perfil.</p>
           <span
             onClick={() => setPostPhotosModalOpened(true)}
             title="Adicionar foto"

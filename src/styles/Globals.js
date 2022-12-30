@@ -5,22 +5,22 @@ const Globals = createGlobalStyle`
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
   }
 
   html {
     font-size: 16px;
 
-    @media (max-width: 480px) {
-      font-size: 14px;
+    @media (max-width: 390px) {
+      font-size: 15px;
     }
 
     @media (max-width: 320px) {
-      font-size: 13px;
+      font-size: 14px;
     }
   }
 
   body {
-    font-family: Helvetica, sans-serif;
     background: ${({ theme }) => theme.colors.lightColor};
     color: ${({ theme }) => theme.colors.primaryColor};
 
@@ -30,7 +30,6 @@ const Globals = createGlobalStyle`
 
     input, textarea {
       outline: none;
-      font-family: Helvetica, sans-serif;
       font-size: .875rem;
     }
 
@@ -38,7 +37,6 @@ const Globals = createGlobalStyle`
       outline: none;
       cursor: pointer;
       display: inline-block;
-      font-family: Helvetica, sans-serif;
       font-size: 1rem;
       text-transform: uppercase;
       font-weight: 700;
@@ -57,6 +55,10 @@ const Globals = createGlobalStyle`
     span, svg, a {
       display: block;
       color: ${({ theme }) => theme.colors.primaryColor};
+    }
+
+    h1 {
+      line-height: 2.5rem;
     }
 
     p {
