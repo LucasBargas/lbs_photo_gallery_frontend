@@ -19,8 +19,10 @@ const PostsShowcase = ({
   if (!authUser && photos.length === 0) {
     return (
       <S.NoPostsContainer>
-        <AiOutlineCamera />
-        <h2>Ainda não há nenhuma publicação</h2>
+        <div>
+          <AiOutlineCamera />
+          <h2>Ainda não há nenhuma publicação</h2>
+        </div>
       </S.NoPostsContainer>
     );
   }
@@ -28,20 +30,25 @@ const PostsShowcase = ({
   if (authUser && photos.length === 0) {
     return (
       <S.NoPostsContainer>
-        <button
-          onClick={() => setPostPhotosModalOpened(true)}
-          title="Adicionar foto"
-        >
-          <AiOutlineCamera />
-        </button>
-        <h2>Compartilhe suas fotos</h2>
-        <p>Assim que você compartilha-las, elas aparecerão no seu perfil.</p>
-        <span
-          onClick={() => setPostPhotosModalOpened(true)}
-          title="Adicionar foto"
-        >
-          Compartilhe sua primeira foto
-        </span>
+        <div>
+          <button
+            onClick={() => setPostPhotosModalOpened(true)}
+            title="Adicionar foto"
+          >
+            <AiOutlineCamera />
+          </button>
+          <h2>Compartilhe suas fotos</h2>
+          <p>
+            Assim que você compartilha-las, elas aparecerão no seu perfil e
+            estaram disponíveis para todos visualizarem.
+          </p>
+          <span
+            onClick={() => setPostPhotosModalOpened(true)}
+            title="Adicionar foto"
+          >
+            Compartilhe sua primeira foto
+          </span>
+        </div>
       </S.NoPostsContainer>
     );
   }

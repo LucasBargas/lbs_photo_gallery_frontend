@@ -2,31 +2,38 @@ import styled from 'styled-components';
 
 export const NoPostsContainer = styled.div`
   text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: .75rem;
+  max-width: 700px;
+  margin: 0 auto;
 
-  button {
-    border: 2px solid ${({ theme }) => theme.colors.primaryColor};
-    background: transparent;
-    border-radius: 100%;
-    padding: .75rem;
-  }
 
-  svg {
-    font-size: 4rem;
-  }
+  div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: .625rem;
 
-  span {
-    cursor: pointer;
-    color: ${({ theme }) => theme.colors.greenColor};
-    font-weight: 700;
-    transition: .4s;
+    button {
+      border: 2px solid ${({ theme }) => theme.colors.primaryColor};
+      background: transparent;
+      border-radius: 100%;
+      padding: .75rem;
+    }
 
-    &:hover {
-      color: ${({ theme }) => theme.colors.greenColorHover};
+    svg {
+      font-size: 4rem;
+    }
+
+    span {
+      cursor: pointer;
+      color: ${({ theme }) => theme.colors.greenColor};
+      font-weight: 700;
+      transition: .4s;
+
+      &:hover {
+        text-decoration: underline;
+        color: ${({ theme }) => theme.colors.greenColorHover};
+      }
     }
   }
 `;
