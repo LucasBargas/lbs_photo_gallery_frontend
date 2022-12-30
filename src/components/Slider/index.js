@@ -91,19 +91,27 @@ const Slider = ({ authUser, photos, setPhotos, setSlider, sliderActive }) => {
                 {authenticated &&
                   datas &&
                   photo.userName === datas.userName && (
-                    <Link href="/perfil">{photo.userName}</Link>
+                    <Link onClick={() => setSlider(false)} href="/perfil">
+                      {photo.userName}
+                    </Link>
                   )}
 
                 {authenticated &&
                   datas &&
                   photo.userName !== datas.userName && (
-                    <Link href={`/perfil/${photo.userName}`}>
+                    <Link
+                      onClick={() => setSlider(false)}
+                      href={`/perfil/${photo.userName}`}
+                    >
                       {photo.userName}
                     </Link>
                   )}
 
                 {!authenticated && (
-                  <Link href={`/perfil/${photo.userName}`}>
+                  <Link
+                    onClick={() => setSlider(false)}
+                    href={`/perfil/${photo.userName}`}
+                  >
                     {photo.userName}
                   </Link>
                 )}
