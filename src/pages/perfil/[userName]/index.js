@@ -5,9 +5,23 @@ import ProfilePage from '../../../templates/ProfilePage';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
+const fetchDatas = async (url) => {
+  let res;
+  let json;
+
+  try {
+    res = await fetch(url);
+    json = await res.json();
+  } catch (error) {
+    json = null;
+    return error;
+  } finally {
+    return json;
+  }
+};
+
 export const getStaticPaths = async () => {
-  const res = await fetch(`${apiUrl}/users`);
-  const users = await res.json();
+  const users = await fetchDatas(`${apiUrl}/users`);
 
   const paths = users.map((user) => {
     return {
@@ -25,8 +39,7 @@ export const getStaticPaths = async () => {
 
 export const getStaticProps = async (context) => {
   const { userName } = context.params;
-  const res = await fetch(`${apiUrl}/users/${userName}`);
-  const user = await res.json();
+  const user = await fetchDatas(`${apiUrl}/users/${userName}`);
 
   return {
     props: { user },

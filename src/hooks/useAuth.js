@@ -69,6 +69,7 @@ const useAuth = () => {
       localStorage.removeItem('galleryPhotoApiToken');
       api.defaults.headers.Authorization = undefined;
       router.push('/entrar');
+      return;
     } catch (error) {
       return error;
     }

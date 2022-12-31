@@ -4,9 +4,23 @@ import HomePage from '../templates/HomePage';
 
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
+const fetchDatas = async (url) => {
+  let res;
+  let json;
+
+  try {
+    res = await fetch(url);
+    json = await res.json();
+  } catch (error) {
+    json = null;
+    return error;
+  } finally {
+    return json;
+  }
+};
+
 export const getServerSideProps = async () => {
-  const res = await fetch(`${apiUrl}/photos`);
-  const photos = await res.json();
+  const photos = await fetchDatas(`${apiUrl}/photos`);
 
   return {
     props: { photos },

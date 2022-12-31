@@ -27,9 +27,8 @@ const useReqApi = (url, auth = false) => {
           return response.data;
         })
         .catch((err) => {
-          console.log(err);
           setLoading(false);
-          return;
+          return err;
         });
     };
 
