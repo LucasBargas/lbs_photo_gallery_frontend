@@ -81,8 +81,8 @@ const useAuth = () => {
   const logout = () => {
     try {
       setAuthenticated(false);
-      destroyCookie(undefined, 'galleryPhotoApiToken');
       api.defaults.headers.Authorization = undefined;
+      destroyCookie(undefined, 'galleryPhotoApiToken');
       router.push('/entrar');
       return;
     } catch (error) {
