@@ -6,6 +6,7 @@ import Image from 'next/image';
 import api from '../../utils/api';
 import useFlashMessages from '../../hooks/useFlashMessages';
 import FlashMessages from '../FlashMessages';
+import { parseCookies } from 'nookies';
 
 const categories = [
   'Natureza',
@@ -54,6 +55,10 @@ const PostPhotosModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const cookies = parseCookies();
+    const token = cookies['galleryPhotoApiToken'];
+    if (!token) return;
+
     const formData = new FormData();
 
     formData.append('singlePhoto', previewPhoto);
@@ -62,10 +67,10 @@ const PostPhotosModal = ({
       formData.append('categories', checked);
     });
 
-    postPhoto(formData);
+    postPhoto(formData, token);
   };
 
-  const postPhoto = async (formData) => {
+  const postPhoto = async (formData, token) => {
     let msgText = 'Foto postada com sucesso!';
     let msgType = 'success';
 
@@ -74,11 +79,7 @@ const PostPhotosModal = ({
       await api
         .post('/photos/register', formData, {
           headers: {
-            Authorization:
-              typeof window !== 'undefined' &&
-              `Bearer ${JSON.parse(
-                localStorage.getItem('galleryPhotoApiToken'),
-              )}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
           },
         })

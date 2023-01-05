@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { FiPlus } from 'react-icons/fi';
 import { MdOutlineEdit } from 'react-icons/md';
 import api from '../../utils/api';
+import { parseCookies } from 'nookies';
 
 const apiUrlUsersPhotos = process.env.NEXT_PUBLIC_API_USERS_URL;
 
@@ -16,6 +17,10 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
   const handleFileChange = ({ target }) => {
     if (!authUser) return;
 
+    const cookies = parseCookies();
+    const token = cookies['galleryPhotoApiToken'];
+    if (!token) return;
+
     setPreviewPhoto(target.files[0]);
     user.userPhoto = target.files[0];
 
@@ -24,19 +29,15 @@ const ProfileDatas = ({ authUser, user, photos, setPostPhotosModalOpened }) => {
       formData.append(key, user[key]);
     });
 
-    postPhoto(formData);
+    postPhoto(formData, token);
   };
 
-  const postPhoto = async (formData) => {
+  const postPhoto = async (formData, token) => {
     try {
       await api
         .patch('/users/edit', formData, {
           headers: {
-            Authorization:
-              typeof window !== 'undefined' &&
-              `Bearer ${JSON.parse(
-                localStorage.getItem('galleryPhotoApiToken'),
-              )}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
           },
         })

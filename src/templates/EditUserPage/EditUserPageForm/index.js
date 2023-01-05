@@ -6,6 +6,7 @@ import api from '../../../utils/api';
 import ShowPassword from '../../../components/Form/ShowPassword';
 import FlashMessages from '../../../components/FlashMessages';
 import useFlashMessages from '../../../hooks/useFlashMessages';
+import { parseCookies } from 'nookies';
 
 const EditUserPageForm = ({ datas }) => {
   const [user, setUser] = useState(datas || {});
@@ -20,6 +21,10 @@ const EditUserPageForm = ({ datas }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const cookies = parseCookies();
+    const token = cookies['galleryPhotoApiToken'];
+    if (!token) return;
+
     let msgText = 'Conta atualizada com sucesso!';
     let msgType = 'success';
 
@@ -33,11 +38,7 @@ const EditUserPageForm = ({ datas }) => {
       await api
         .patch('/users/edit', formData, {
           headers: {
-            Authorization:
-              typeof window !== 'undefined' &&
-              `Bearer ${JSON.parse(
-                localStorage.getItem('galleryPhotoApiToken'),
-              )}`,
+            Authorization: `Bearer ${token}`,
             'Content-Type': 'multipart/form-data',
           },
         })

@@ -4,6 +4,7 @@ import authUser from '../helpers/authUser';
 import api from '../utils/api';
 import useFlashMessages from './useFlashMessages';
 import useAuthContext from './useAuthContext';
+import { setCookie, parseCookies, destroyCookie } from 'nookies';
 
 const useAuth = () => {
   const { setAuthenticated } = useAuthContext();
@@ -12,9 +13,11 @@ const useAuth = () => {
   const { setFlashMessage } = useFlashMessages();
 
   useEffect(() => {
-    const token = localStorage.getItem('galleryPhotoApiToken');
+    const cookies = parseCookies();
+    const token = cookies['galleryPhotoApiToken'];
+
     if (token) {
-      api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+      api.defaults.headers.Authorization = `Bearer ${token}`;
       setAuthenticated(true);
     }
   }, [setAuthenticated]);
@@ -29,7 +32,13 @@ const useAuth = () => {
         .post('/users/register', user)
         .then((response) => response.data);
 
-      await authUser(setAuthenticated, data.token, router);
+      setAuthenticated(true);
+      setCookie(undefined, 'galleryPhotoApiToken', data.token, {
+        maxAge: 60 * 60 * 1, // 1 hour
+      });
+      setTimeout(() => {
+        router.push('/');
+      }, 1000);
       return;
     } catch (error) {
       msgText = error.response.data.message;
@@ -51,7 +60,13 @@ const useAuth = () => {
         .post('/users/login', user)
         .then((response) => response.data);
 
-      await authUser(setAuthenticated, data.token, router);
+      setAuthenticated(true);
+      setCookie(undefined, 'galleryPhotoApiToken', data.token, {
+        maxAge: 60 * 60 * 1, // 1 hour
+      });
+      setTimeout(() => {
+        router.push('/');
+      }, 1000);
       return;
     } catch (error) {
       msgText = error.response.data.message;
@@ -66,7 +81,7 @@ const useAuth = () => {
   const logout = () => {
     try {
       setAuthenticated(false);
-      localStorage.removeItem('galleryPhotoApiToken');
+      destroyCookie(undefined, 'galleryPhotoApiToken');
       api.defaults.headers.Authorization = undefined;
       router.push('/entrar');
       return;
