@@ -91,8 +91,11 @@ const HeaderNav = ({ setHeaderNavMobile, headerNavMobile }) => {
                     </Link>
                   </li>
                 ))}
-              <S.HeaderButtonLogout onClick={handleLogout}>
-                <MdLogout />
+              <S.HeaderButtonLogout>
+                <button onClick={handleLogout} title="Sair da conta">
+                  <MdLogout />
+                  <span>Sair</span>
+                </button>
               </S.HeaderButtonLogout>
             </>
           )}

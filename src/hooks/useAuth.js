@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import authUser from '../helpers/authUser';
 import api from '../utils/api';
 import useFlashMessages from './useFlashMessages';
 import useAuthContext from './useAuthContext';
@@ -34,7 +33,7 @@ const useAuth = () => {
 
       setAuthenticated(true);
       setCookie(undefined, 'galleryPhotoApiToken', data.token, {
-        maxAge: 60 * 60 * 1, // 1 hour
+        maxAge: 60 * 60 * 1 * 24, // 1 day
       });
       setTimeout(() => {
         router.push('/');
@@ -62,7 +61,7 @@ const useAuth = () => {
 
       setAuthenticated(true);
       setCookie(undefined, 'galleryPhotoApiToken', data.token, {
-        maxAge: 60 * 60 * 1, // 1 hour
+        maxAge: 60 * 60 * 1 * 24, // 1 day
       });
       setTimeout(() => {
         router.push('/');

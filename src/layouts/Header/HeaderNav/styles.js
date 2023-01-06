@@ -113,22 +113,41 @@ export const HeaderMobileButtonClose = styled.div`
   }
 `;
 
-export const HeaderButtonLogout = styled.button`
-  border: none;
-  background: transparent;
-  padding: .5rem 0 .5rem .5rem;
-  font-size: 1.5rem;
+export const HeaderButtonLogout = styled.li`
+  display: flex;
+  justify-content: flex-end;
 
-  @media (max-width: 1024px) {
-    display: block;
-    padding: .75rem .75rem .75rem 0;
-  }
-
-  svg {
-    color: ${({ theme }) => theme.colors.primaryColor};
+  button {
+    display: flex !important;
+    align-items: center;
+    gap: .25rem;
+    border: none;
+    background: transparent;
+    padding: .5rem 0 .5rem .5rem;
+    opacity: .8;
 
     @media (max-width: 1024px) {
-      color: ${({ theme }) => theme.colors.lightColor};
+      display: block;
+      padding: .75rem .75rem .75rem 0;
+      opacity: 1;
+    }
+
+    span {
+      color: ${({ theme }) => theme.colors.primaryColor};
+      font-size: .875rem;
+
+      @media (max-width: 1024px) {
+        color: ${({ theme }) => theme.colors.lightColor};
+      }
+    }
+
+    svg {
+      font-size: 1.625rem;
+      color: ${({ theme }) => theme.colors.primaryColor};
+
+      @media (max-width: 1024px) {
+        color: ${({ theme }) => theme.colors.lightColor};
+      }
     }
   }
 `;
