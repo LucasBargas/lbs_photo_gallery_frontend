@@ -11,7 +11,7 @@ export const ProfileDatasContainer = styled.div`
     gap: 2rem;
   }
 
-  @media (max-width: 390px) {
+  @media (max-width: 480px) {
     flex-direction: column;
     gap: 1rem;
   }
