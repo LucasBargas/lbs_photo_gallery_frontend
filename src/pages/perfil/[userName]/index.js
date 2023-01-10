@@ -20,22 +20,22 @@ const fetchDatas = async (url) => {
   }
 };
 
-export const getStaticPaths = async () => {
-  const users = await fetchDatas(`${apiUrl}/users`);
+// export const getStaticPaths = async () => {
+//   const users = await fetchDatas(`${apiUrl}/users`);
 
-  const paths = users.map((user) => {
-    return {
-      params: {
-        userName: user.userName.toString(),
-      },
-    };
-  });
+//   const paths = users.map((user) => {
+//     return {
+//       params: {
+//         userName: user.userName.toString(),
+//       },
+//     };
+//   });
 
-  return {
-    paths,
-    fallback: false,
-  };
-};
+//   return {
+//     paths,
+//     fallback: false,
+//   };
+// };
 
 export const getServerSideProps = async (context) => {
   const { userName } = context.params;
