@@ -16,12 +16,26 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 
 ### Tecnologias utilizadas
 #### Front end
-* Nextjs;
-* Styled components;
+<table>
+  <tr>
+    <td>Nextjs</td>
+    <td>Styled Components</td>
+    <td>Axios</td>
+    <td>React icons</td>
+    <td>Nookies</td>
+  </tr>
+  <tr>
+    <td>13.1</td>
+    <td>5.3</td>
+    <td>1.2</td>
+    <td>4.7</td>
+    <td>2.5</td>
+  <tr>
+</table>
+
+### Outros recursos utilizados
 * Hooks e Context API;
-* Axios para o consumo da API Rest desenvolvida no Backend;
 * Renderização de dados com SSR e SSG;
-* React Icons.
 
 ### Prints do App (Versão Desktop e Mobile)
 
