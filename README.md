@@ -26,24 +26,24 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 ### Prints do App (Versão Desktop e Mobile)
 
 #### Página incial
-<img alt="Página inicial" src="https://i.ibb.co/KN3345g/photo-gallery-home.png">
-<img alt="Página inicial com modal" src="https://i.ibb.co/XV0nrWV/photo-gallery-home-modal.png">
+<img alt="Página inicial" src="https://user-images.githubusercontent.com/76006347/212766458-d37133b3-65e4-4a2a-8712-8a63b88bf050.png">
+<img alt="Página inicial com modal" src="https://user-images.githubusercontent.com/76006347/212767020-315c9325-017f-4c11-bcba-2906d385a35e.png">
 
 #### Página de Login
-<img alt="Página de Login" src="https://i.ibb.co/rQfsPNS/photo-gallery-login.png">
+<img alt="Página de Login" src="https://user-images.githubusercontent.com/76006347/212766925-40a5b11c-da6b-469b-ad60-feae435e4b9f.png">
 
 #### Página de Cadastro de Usuário
-<img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/r77fVJv/photo-gallery-register.png">
+<img alt="Página de Cadastro de Usuário" src="https://user-images.githubusercontent.com/76006347/212767108-6f4f573e-d159-470c-bb56-e004826337a9.png">
 
 #### Página de Perfil público dos Usuários
-<img alt="Página de Cadastro de Usuário" src="https://i.ibb.co/VpXG1gx/photo-gallery-public-profile.png">
+<img alt="Página de Edição de Usuário" src="https://user-images.githubusercontent.com/76006347/212767419-4c91f658-b61c-476b-a03c-998f187248b0.png">
 
 #### Página de Perfil do Usuário logado
-<img alt="Página de Perfil do Usuário logado" src="https://i.ibb.co/7gQWkjh/photo-gallery-private-profile.png">
-<img alt="Página de Perfil do Usuário logado com modal" src="https://i.ibb.co/BLZnspK/photo-gallery-private-profile-modal.png">
+<img alt="Página de Perfil do Usuário logado" src="https://user-images.githubusercontent.com/76006347/212767519-fe93793a-1b7f-4874-aa65-1778ee7aeca2.png">
+<img alt="Página de Perfil do Usuário logado com modal" src="https://user-images.githubusercontent.com/76006347/212767665-1fdf7125-24e4-4ff0-acec-6389e0855925.png">
 
 #### Página de Edição de Usuário
-<img alt="Página de Edição de Usuário" src="https://i.ibb.co/WGQx6Fh/photo-gallery-edit.png">
+<img alt="Página de Edição de Usuário" src="https://user-images.githubusercontent.com/76006347/212767790-5e9c6353-b25f-4b07-bf8e-5dcf34f43255.png">
 
 Gostaria de ver o repositório do Backend deste app?
 [Clique aqui](https://github.com/LucasBargas/lbs_photo_gallery_backend)
