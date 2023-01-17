@@ -17,13 +17,22 @@ const Footer = () => {
           </a>
           .
         </p>
-        <a
-          href="https://github.com/LucasBargas/lbs_photo_gallery_frontend"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Clique aqui para visualizar o repositório no GitHub
-        </a>
+        <div>
+          <a
+            href="https://github.com/LucasBargas/lbs_photo_gallery_frontend"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Clique aqui para visualizar o repositório do Front End no GitHub
+          </a>
+          <a
+            href="https://github.com/LucasBargas/lbs_photo_gallery_backend"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Clique aqui para visualizar o repositório do Backend no GitHub
+          </a>
+        </div>
       </AppContainer>
     </S.FooterContainer>
   );
