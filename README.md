@@ -59,8 +59,37 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 #### Página de Edição de Usuário
 <img alt="Página de Edição de Usuário" src="https://user-images.githubusercontent.com/76006347/212767790-5e9c6353-b25f-4b07-bf8e-5dcf34f43255.png">
 
-Gostaria de ver o repositório do Backend deste app?
-[Clique aqui](https://github.com/LucasBargas/lbs_photo_gallery_backend)
+### Como executar este Frontend
+
+#### Pré-requisitos
+Instalar o Nodejs
+
+#### Clone o repositório
+```bash
+git clone https://github.com/LucasBargas/lbs_photo_gallery_frontend.git
+```
+#### Entre na pasta
+```bash
+cd lbs_photo_gallery_frontend
+```
+#### Instale as dependências
+```bash
+npm install
+```
+#### Configure as variáveis de ambiente
+```bash
+# Crie um arquivo .env.local e passe os valores
+NEXT_PUBLIC_API_URL=http://localhost:8080
+NEXT_PUBLIC_API_PHOTOS_URL=http://localhost:8080/uploads/images/photos
+NEXT_PUBLIC_API_USERS_URL=http://localhost:8080/uploads/images/users
+NEXT_PUBLIC_DOMAIN_URL=http://localhost:3000
+NEXT_PUBLIC_CONFIG_IMAGES_DIR=http://localhost:8080
+```
+
+#### Execute o App
+```bash
+npm run dev
+```
 
 # Autor
 Lucas Bargas da Silva
@@ -68,3 +97,6 @@ Lucas Bargas da Silva
 <https://projetoslucasbargas.vercel.app/>
 </br>
 <https://www.linkedin.com/in/lucas-bargas/>
+
+Gostaria de ver o repositório do Backend deste app?
+[Clique aqui](https://github.com/LucasBargas/lbs_photo_gallery_backend)
