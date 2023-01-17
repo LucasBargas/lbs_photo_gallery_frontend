@@ -61,3 +61,10 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 
 Gostaria de ver o repositório do Backend deste app?
 [Clique aqui](https://github.com/LucasBargas/lbs_photo_gallery_backend)
+
+# Autor
+Lucas Bargas da Silva
+</br>
+<https://projetoslucasbargas.vercel.app/>
+</br>
+<https://www.linkedin.com/in/lucas-bargas/>
