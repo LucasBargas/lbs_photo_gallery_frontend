@@ -62,7 +62,8 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 ### Como executar este Frontend
 
 #### Pré-requisitos
-Instalar o Nodejs
+* Possuir o Nodejs instalado;
+* Estar com o backend em execução (link do repositório do mesmo no final do readme).
 
 #### Clone o repositório
 ```bash
