@@ -10,6 +10,7 @@ import Link from 'next/link';
 import api from '../../utils/api';
 import useReqApi from '../../hooks/useReqApi';
 import useAuthContext from '../../hooks/useAuthContext';
+import { parseCookies } from 'nookies';
 
 const apiUrlPhotos = process.env.NEXT_PUBLIC_API_PHOTOS_URL;
 const apiUrl = process.env.NEXT_PUBLIC_API_URL;
@@ -22,15 +23,16 @@ const Slider = ({ authUser, photos, setPhotos, setSlider, sliderActive }) => {
   const handleDeletePhoto = async (id) => {
     if (!authUser) return;
 
+    const cookies = parseCookies();
+    const token = cookies['galleryPhotoApiToken'];
+
+    if (!token) return;
+
     if (window.confirm('Você tem certeza que quer apagar esta foto?')) {
       await api
         .delete(`/photos/delete/${id}`, {
           headers: {
-            Authorization:
-              typeof window !== 'undefined' &&
-              `Bearer ${JSON.parse(
-                localStorage.getItem('galleryPhotoApiToken'),
-              )}`,
+            Authorization: `Bearer ${token}`,
           },
         })
         .then((response) => {

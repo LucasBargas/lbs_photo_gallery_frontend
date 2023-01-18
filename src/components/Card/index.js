@@ -40,6 +40,7 @@ const Card = ({
         })
         .then((response) => {
           setPhotos(photos.filter((photo) => photo.photoId !== id));
+          setSlider(false);
           return response.data;
         })
         .catch((err) => {
