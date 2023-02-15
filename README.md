@@ -59,7 +59,7 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 #### Página de Edição de Usuário
 <img alt="Página de Edição de Usuário" src="https://user-images.githubusercontent.com/76006347/212767790-5e9c6353-b25f-4b07-bf8e-5dcf34f43255.png">
 
-### Como executar este Frontend
+### Como executar este Front End
 
 #### Pré-requisitos
 * Possuir o Nodejs instalado;
