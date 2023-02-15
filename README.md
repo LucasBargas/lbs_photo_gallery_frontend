@@ -50,7 +50,7 @@ Agora pensando no front end, também tenho praticado dedicadamente o framework *
 <img alt="Página de Cadastro de Usuário" src="https://user-images.githubusercontent.com/76006347/212767108-6f4f573e-d159-470c-bb56-e004826337a9.png">
 
 #### Página de Perfil público dos Usuários
-<img alt="Página de Edição de Usuário" src="https://user-images.githubusercontent.com/76006347/212767419-4c91f658-b61c-476b-a03c-998f187248b0.png">
+<img alt="Página de Perfil público dos Usuários" src="https://user-images.githubusercontent.com/76006347/212767419-4c91f658-b61c-476b-a03c-998f187248b0.png">
 
 #### Página de Perfil do Usuário logado
 <img alt="Página de Perfil do Usuário logado" src="https://user-images.githubusercontent.com/76006347/212767519-fe93793a-1b7f-4874-aa65-1778ee7aeca2.png">
